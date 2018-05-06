@@ -12,7 +12,7 @@ export class AudioPlayerComponent implements OnInit {
   progressTimeMinutes;
   progressTimeSeconds;
   timeLeftCounter;
-  currentSongUrl = '../assets/music/Janel_Drewis_-_In_The_Pines_Where_Did_You_Sleep_Last_Night.mp3'
+  currentSongUrl = '../assets/music/lana_del_rey_west_coast.mp3'
   constructor() { }
 
   ngOnInit() {
@@ -30,6 +30,7 @@ export class AudioPlayerComponent implements OnInit {
         this.timeLeft();
       } else {  
         this.audio.pause();
+         this.timeLeft();
         clearInterval(this.timeLeftCounter);
       }
 
@@ -46,14 +47,13 @@ export class AudioPlayerComponent implements OnInit {
           this.audio.currentTime;
           this.progressTimeSeconds = Math.round(this.audio.currentTime);
 
-          if (this.progressTimeSeconds >= 60) {
-            this.progressTimeSeconds = this.progressTimeSeconds - 60;
+          if (this.progressTimeSeconds >= 60 ) {
+            this.progressTimeSeconds = this.progressTimeSeconds - (60*this.progressTimeMinutes);
           }
-
           this.progressTimeMinutes = Math.floor(this.audio.currentTime/60);
 
-      }, 1000);
-
+      }, 1);
+      
     }
     skipTime(time) {
       this.audio.currentTime = time;

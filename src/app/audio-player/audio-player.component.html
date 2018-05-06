@@ -7,4 +7,8 @@
 <input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)">
 <input type="range" min="0" [value]="70" max="100" step="1" #volume (input)="setVolume(volume.value)">
 <h1>{{songDuration}}</h1>
+
+
 <h1 *ngIf="songDuration"><span>{{progressTimeMinutes}}</span>:<span *ngIf="progressTimeSeconds < 10">0</span>{{progressTimeSeconds}}</h1>
+
+<span *ngIf="progressTimeSeconds == 59">00</span>
