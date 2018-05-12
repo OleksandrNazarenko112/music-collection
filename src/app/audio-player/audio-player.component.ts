@@ -23,6 +23,7 @@ export class AudioPlayerComponent implements OnInit {
        this.audio.play();
        this.culcSongDuration();
        this.currentTimeUpdate();
+       this.formatTime();
       } else {  
        this.audio.pause();
       }
@@ -41,7 +42,7 @@ export class AudioPlayerComponent implements OnInit {
       this.audio.volume = volume / 100;
     }
     formatTime() {
-      let minutes,seconds;
+      let minutes, seconds;
       seconds = Math.round(this.audio.currentTime);
       minutes = Math.floor(seconds / 60);
       seconds = Math.floor(seconds % 60);

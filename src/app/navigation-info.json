@@ -1,0 +1,24 @@
+
+{
+  "settings": {
+      "genre": [
+        "pop", "rock"
+      ],
+      "vocal": [
+        "male", "female", "duet"
+      ],
+      "minus": [
+        true, false
+      ],
+      "language": [
+      "en", "ua", "ru"
+      ],
+      "bestFit": [
+      "Свадебный клип", "Сборы невесты", "Выкуп" ,
+      "Первый танец"
+      ],
+      "temp": [
+        "fast", "slow", "intermediate"
+      ]
+  }
+}

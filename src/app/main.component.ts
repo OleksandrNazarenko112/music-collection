@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import { NavigationInfoService } from './services/navigation-info.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,22 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class MainComponent {
   title = 'app';
-constructor(private translate: TranslateService) {
+  navigationInfo;
+  genreNav;
+constructor(private translate: TranslateService, private _getNav:NavigationInfoService) {
     translate.setDefaultLang('en');
   }
 
   switchLanguage(language: string) {
     this.translate.use(language);
   }
+  getJson() {
+
+    this._getNav.getJSON().subscribe(response => {
+                   this.navigationInfo = response;
+                   this.genreNav = response.settings.genre;
+    });
+
+  }
 }
+      
