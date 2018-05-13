@@ -1,0 +1,7 @@
+<h2 [innerHTML]="'test.su' | translate">Menu</h2>
+<ul>
+<li  *ngFor="let item of navigationInfo?.settings?.genre; let i = index" >
+  <a href="#" >{{item}}</a>
+</li>
+
+</ul>

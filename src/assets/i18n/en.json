@@ -2,5 +2,6 @@
   "title": "My appliacation",
   "test": {
       "su": 123
-  }
+  },
+  "genre": ["pop", "rock", "folk", "rap"]
 }

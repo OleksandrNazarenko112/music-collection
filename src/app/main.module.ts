@@ -7,6 +7,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MainComponent } from './main.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 import { NavigationInfoService } from './services/navigation-info.service';
+import { NavigationComponent } from './navigation/navigation.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -16,7 +18,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     MainComponent,
-    AudioPlayerComponent
+    AudioPlayerComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ export function HttpLoaderFactory(http: HttpClient) {
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        })
+        }),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [MainComponent]
