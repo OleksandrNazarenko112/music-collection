@@ -9,13 +9,14 @@ export class AudioPlayerComponent implements OnInit {
   audio: any;
   duration: any;
   elapsed: any;
-  currentSongUrl = '../assets/music/lana_del_rey_west_coast.mp3'
+  currentSongUrl = '../assets/music/Portugal-The-Man-Feel-It-Still.mp3'
   constructor() { }
 
-  ngOnInit() {
+   ngOnInit(): void {
      this.initAudioPlayer();
+     this.audio.volume = 0.7;
   }
-  initAudioPlayer() {
+  initAudioPlayer(): void {
     this.audio = new Audio(this.currentSongUrl);
   }
   togglePlay() {
@@ -39,7 +40,10 @@ export class AudioPlayerComponent implements OnInit {
       this.audio.currentTime = time;
     }
   setVolume(volume) {
-      this.audio.volume = volume / 100;
+      this.audio.volume = volume;
+       if((this.audio.muted && this.audio.volume > 0) || this.audio.volume == 0) {
+            this.audio.muted = !this.audio.muted;
+        }
     }
   formatTime() {
       let minutes, seconds;
@@ -54,6 +58,15 @@ export class AudioPlayerComponent implements OnInit {
       this.formatTime();
         }, false);
   }
+  mute() {
+      this.audio.muted = !this.audio.muted;
+      if(this.audio.muted) {
+        this.audio.volume = 0;
+      } 
+      if(!this.audio.muted) {
+        this.audio.volume = 0.7;
+      }
+    }
 }
 
 

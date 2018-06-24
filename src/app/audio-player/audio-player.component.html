@@ -1,34 +1,42 @@
-<p>
-  audio-player works!
-</p>
-<button (click) = "togglePlay()">play</button>
-<a [href]="currentSongUrl" download>Скачать</a>
-<input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)" >
-<input type="range" min="0" [value]="70" max="100" step="1" #volume (input)="setVolume(volume.value)">
-
 <div class="audo-player ">
   <div class="container-fluid">
     <div class="row ">
       <div class="col-lg-2 col-xs-12 controls align-self-center">
-        <ul >
-          <li class="backward" ><a href="javascript:void(0)" ><i class="fa fa-backward"></i></a></li>
-          <li class="play-pause"><a href="javascript:void(0)"  (click)="togglePlay()"><i [className]="audio.paused ? 'fa fa-play' : 'fa fa-pause'"></i></a></li>
-          <li class="forward"><a href="javascript:void(0)" ><i class="fa fa fa-forward"></i></a></li>
+        <ul>
+          <li class="backward"><a href="javascript:void(0)"><i class="fa fa-backward"></i></a></li>
+          <li class="play-pause"><a href="javascript:void(0)" (click)="togglePlay()"><i [className]="audio.paused ? 'fa fa-play' : 'fa fa-pause'"></i></a></li>
+          <li class="forward"><a href="javascript:void(0)"><i class="fa fa fa-forward"></i></a></li>
         </ul>
+      </div>
+      <div class="col-lg-1 col-xs-12  album-cover-container align-self-center">
+        <img src="./assets/music/album-cover/portogal-feel_i_still.jpg">
+      </div>
+      <div class="col-lg-6 col-xs-12  track-progress-container align-self-center">
+        <div class="audio-controls-group">
+          <div class="col-lg-11">
+            <h6 *ngIf="audio.currentTime">Portugal - <span>Feel it still</span></h6>
+            <input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)">
+            <span class="track-timer" *ngIf="audio.currentTime">{{elapsed}} / {{duration}}</span>
+          </div>
+          <div class="controls align-self-center">
+            <ul>
+              <li class=""><a [href]="currentSongUrl" download><i class="fa fa-cloud-download"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-xs-12  volume-container align-self-center">
+        <div class="audio-controls-group volume-group">
+          <div class="controls col-lg-1 align-self-center">
+            <ul>
+              <li><a href="javascript:void(0)" (click)="mute()"><i class="fa fa-volume-up"  [className]="audio.volume > 0 ? 'fa fa-volume-up' : 'fa fa-volume-off'" ></i></a></li>
+            </ul>
+          </div>
+          <div class="col-lg-7 col-xs-12 volume align-self-center">
+            <input id="volume" type="range" min="0" [value]="audio.volume" max="1" step="0.01" #volume (input)="setVolume(volume.value)">
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-lg-1 col-xs-12  album-cover align-self-center">
-      <img src="./assets/music/album-cover/sia-the-greatest.jpg">
-    </div>
-    <div class="col-lg-5 col-xs-12  track-progress-container align-self-center">
-      <h6 *ngIf="audio.currentTime">Исполнитель - <span>Название песни</span></h6>
-      <input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)" >
-      <span class="track-timer" *ngIf="audio.currentTime">{{elapsed}} / {{duration}}</span>
   </div>
-    <div class="col-lg-4 col-xs-12  volume align-self-center">
-      <input type="range" min="0" [value]="70" max="100" step="1" #volume (input)="setVolume(volume.value)">
-    </div>
 </div>
-</div>
-</div>
-
-
