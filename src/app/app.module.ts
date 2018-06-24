@@ -37,4 +37,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [],
   bootstrap: [MainComponent]
 })
-export class MainModule { }
+export class appModule { }

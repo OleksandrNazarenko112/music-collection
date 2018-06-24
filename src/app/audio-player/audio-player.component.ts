@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./audio-player.component.scss']
 })
 export class AudioPlayerComponent implements OnInit {
-  audio;
-  duration;
-  elapsed;
+  audio: any;
+  duration: any;
+  elapsed: any;
   currentSongUrl = '../assets/music/lana_del_rey_west_coast.mp3'
   constructor() { }
 
@@ -28,20 +28,20 @@ export class AudioPlayerComponent implements OnInit {
        this.audio.pause();
       }
     }
-    culcSongDuration() {
+  culcSongDuration() {
       let minutes, seconds;
       minutes = Math.floor(this.audio.duration / 60)
       seconds = Math.round(this.audio.duration % 60);
       seconds = (seconds >= 10) ? seconds : '0' + seconds;
       this.duration = minutes  + ':' + seconds;
     }
-    skipTime(time) {
+  skipTime(time) {
       this.audio.currentTime = time;
     }
-    setVolume(volume) {
+  setVolume(volume) {
       this.audio.volume = volume / 100;
     }
-    formatTime() {
+  formatTime() {
       let minutes, seconds;
       seconds = Math.round(this.audio.currentTime);
       minutes = Math.floor(seconds / 60);

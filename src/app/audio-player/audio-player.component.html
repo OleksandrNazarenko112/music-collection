@@ -5,12 +5,30 @@
 <a [href]="currentSongUrl" download>Скачать</a>
 <input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)" >
 <input type="range" min="0" [value]="70" max="100" step="1" #volume (input)="setVolume(volume.value)">
-<h1>{{duration}}</h1>
 
-
-
-<h1>{{elapsed}}</h1>
-
-
+<div class="audo-player ">
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="col-lg-2 col-xs-12 controls align-self-center">
+        <ul >
+          <li class="backward" ><a href="javascript:void(0)" ><i class="fa fa-backward"></i></a></li>
+          <li class="play-pause"><a href="javascript:void(0)"  (click)="togglePlay()"><i [className]="audio.paused ? 'fa fa-play' : 'fa fa-pause'"></i></a></li>
+          <li class="forward"><a href="javascript:void(0)" ><i class="fa fa fa-forward"></i></a></li>
+        </ul>
+    </div>
+    <div class="col-lg-1 col-xs-12  album-cover align-self-center">
+      <img src="./assets/music/album-cover/sia-the-greatest.jpg">
+    </div>
+    <div class="col-lg-5 col-xs-12  track-progress-container align-self-center">
+      <h6 *ngIf="audio.currentTime">Исполнитель - <span>Название песни</span></h6>
+      <input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)" >
+      <span class="track-timer" *ngIf="audio.currentTime">{{elapsed}} / {{duration}}</span>
+  </div>
+    <div class="col-lg-4 col-xs-12  volume align-self-center">
+      <input type="range" min="0" [value]="70" max="100" step="1" #volume (input)="setVolume(volume.value)">
+    </div>
+</div>
+</div>
+</div>
 
 

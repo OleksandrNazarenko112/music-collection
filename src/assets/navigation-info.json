@@ -2,7 +2,7 @@
 {
   "settings": {
       "genre": [
-        "pop", "rock", "folk", "rap"
+        "pop", "rock", "folk", "rap", "test"
       ],
       "vocal": [
         "male", "female", "duet"

@@ -4,8 +4,8 @@ import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class MainComponent {
   title = 'app';
