@@ -1,4 +1,4 @@
-<div class="audo-player ">
+<div class="audo-player">
   <div class="container-fluid">
     <div class="row ">
       <div class="col-lg-2 col-xs-12 controls align-self-center">
@@ -14,9 +14,12 @@
       <div class="col-lg-6 col-xs-12  track-progress-container align-self-center">
         <div class="audio-controls-group">
           <div class="col-lg-11">
-            <h6 *ngIf="audio.currentTime">Portugal - <span>Feel it still</span></h6>
-            <input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)">
-            <span class="track-timer" *ngIf="audio.currentTime">{{elapsed}} / {{duration}}</span>
+            <h6 *ngIf="audio.duration">Portugal - <span>Feel it still</span></h6>
+            <div class="progress-container" >
+              <div class="progress"[style.width.%]="audio.currentTime / audio.duration * 100"></div>
+              <input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)">
+            </div>
+            <span class="track-timer" *ngIf="audio.duration">{{elapsed}} / {{duration}}</span>
           </div>
           <div class="controls align-self-center">
             <ul>
@@ -33,7 +36,10 @@
             </ul>
           </div>
           <div class="col-lg-7 col-xs-12 volume align-self-center">
-            <input id="volume" type="range" min="0" [value]="audio.volume" max="1" step="0.01" #volume (input)="setVolume(volume.value)">
+            <div class="progress-container" >
+              <div class="progress"[style.width.%]="audio.volume * 100"></div>
+              <input id="volume" type="range" min="0" [value]="audio.volume" max="1" step="0.01" #volume (input)="setVolume(volume.value)" >
+          </div>
           </div>
         </div>
       </div>

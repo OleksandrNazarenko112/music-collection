@@ -9,7 +9,7 @@ export class AudioPlayerComponent implements OnInit {
   audio: any;
   duration: any;
   elapsed: any;
-  currentSongUrl = '../assets/music/Portugal-The-Man-Feel-It-Still.mp3'
+  currentSongUrl = 'http://drivemusic.me/dl/2THf6oL2n7pS1eol8v7HZA/1530228125/download_music/2017/03/portugal.-the-man-feel-it-still.mp3'
   constructor() { }
 
    ngOnInit(): void {
@@ -68,6 +68,4 @@ export class AudioPlayerComponent implements OnInit {
       }
     }
 }
-
-
 

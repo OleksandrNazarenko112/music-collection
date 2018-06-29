@@ -1,7 +1,31 @@
-<h2 [innerHTML]="'test.su' | translate">Menu</h2>
-<ul>
-<li  *ngFor="let item of navigationInfo?.settings?.genre; let i = index" >
-  <a href="#" >{{item}}</a>
-</li>
+<div class="navigation-container">
+  <h5>Фильтры</h5>
+  <p><a data-toggle="collapse" href="#footwear" aria-expanded="false" aria-controls="footwear">Footwear</a></p>
+  <ul class="collapse" id="footwear">
+    <li *ngFor="let item of navigationInfo?.settings?.genre; let i = index">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="{{item}}">
+        <label class="custom-control-label" for="{{item}}">{{item}}</label>
+      </div>
+    </li>
+  </ul>
+    <p><a data-toggle="collapse" href="#footwear2" aria-expanded="false" aria-controls="footwear">Footwear</a></p>
+  <ul class="collapse" id="footwear2">
+    <li *ngFor="let item of navigationInfo?.settings?.genre; let i = index">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="{{item}}">
+        <label class="custom-control-label" for="{{item}}">{{item}}</label>
+      </div>
+    </li>
+  </ul>
+      <p><a data-toggle="collapse" href="#footwear3" aria-expanded="false" aria-controls="footwear">Footwear</a></p>
+  <ul class="collapse" id="footwear3">
+    <li *ngFor="let item of navigationInfo?.settings?.genre; let i = index">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="{{item}}">
+        <label class="custom-control-label" for="{{item}}">{{item}}</label>
+      </div>
+    </li>
+  </ul>
+</div>
 
-</ul>

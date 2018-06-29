@@ -1,10 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <h1 [innerHTML]="'title' | translate">
-    Welcome to {{ title | translate }}!
-  </h1>
-      <button (click)="switchLanguage('en')">en</button>
-    <button (click)="switchLanguage('ru')">ru</button>
+<div class="container-fluid pl-0 pr-0">
+  <div class="col-lg-2  navigation-container">
+    <app-navigation></app-navigation>
+  </div>
 </div>
-<app-navigation></app-navigation>
 <app-audio-player></app-audio-player>
