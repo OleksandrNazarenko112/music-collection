@@ -1,24 +1,33 @@
-
 {
   "settings": {
       "genre": [
         "pop", "rock", "folk", "rap", "test"
       ],
-      "vocal": [
-        "male", "female", "duet"
-      ],
-      "minus": [
-        true, false
-      ],
       "language": [
       "en", "ua", "ru"
       ],
       "bestFit": [
-      "Свадебный клип", "Сборы невесты", "Выкуп" ,
+      "Клип", "Сборы невесты", "Выкуп" ,
       "Первый танец"
       ],
-      "temp": [
-        "fast", "slow", "intermediate"
+      "filters": [
+        {
+          "filterName": "Вокал",
+          "filtersType": [
+          {"id": 0, "name": "Мужской"}, 
+          {"id": 1, "name":"Женский"}, 
+          {"id": 2, "name":"Дует"},
+          {"id": 3, "name":"Минус"}
+        ]
+        },
+        {
+        "filterName": "Темп",
+        "filtersType": [ 
+        {"id":0, "name":"Быcтрый"}, 
+        {"id":1, "name":"Медленный"},
+        {"id":2, "name":"Средний"}
+      ]
+        }
       ]
   }
 }

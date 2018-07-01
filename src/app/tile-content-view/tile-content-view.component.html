@@ -1,0 +1,19 @@
+<div class="container-fluid tile-content-container">
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-2" *ngFor=" let song of songsList; let i = index;">
+        <div class="album-cover-container">
+          <a href="javascript:void(0)"><img src="{{song.albumCover}}" alt=""></a>
+          <div class="overlay">
+            <a href="javascript:void(0)" [attr.data]="1" (click)="songSorting()"><i class="fa fa-play"></i></a>
+            <p>2:43</p>
+          </div>
+        </div>
+        <div class="song-title">
+          <h5>{{song.title}}</h5>
+          <p>{{song.singer}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

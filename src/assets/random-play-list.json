@@ -1,0 +1,36 @@
+{
+  "randomPlaylist": {
+    "songs" : [
+      {"id": 0,
+      "title": "loose it",
+      "singer": "Eminem",
+      "url": "http://playmus.cc/load.php?id=a43ef80621c9802c4b4d974d9de443bb23859422367544053317&name=Eminem_-_Just_Lose_It(playmus.cc).mp3",
+      "albumCover": "https://streamd.hitparade.ch/cdimages/eminem-just_lose_it_s.jpg",
+      "filters" : [ 
+        {"id": 1, "name": "Мужской"}, 
+        {"id":1, "name":"Быcтрый"} 
+      ]
+      },
+      {"id": 1,
+      "title": "West Coast",
+      "singer": "Lana del ray",
+      "url": "http://dl1-1.mp3party.net/download/37976",
+      "albumCover": "https://rington.pw/uploads/posts/2016-09/1474100435_09592974.jpg",
+      "filters" : [ 
+        {"id": 2, "name":"Женский"},
+        {"id":2, "name":"Медленный"}
+      ]
+      },
+      {"id": 2,
+      "title": "Alors On Danse",
+      "singer": "Stromae",
+      "url": "http://dl1-1.mp3party.net/download/24",
+      "albumCover": "https://upload.wikimedia.org/wikipedia/en/1/1d/Alors_on_danse.jpg",
+      "filters" : [ 
+        {"id": 1, "name": "Мужской"}, 
+        {"id":1, "name":"Быcтрый"} 
+      ]
+      }
+    ]
+  }
+}

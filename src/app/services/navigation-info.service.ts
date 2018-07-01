@@ -19,4 +19,10 @@ export class NavigationInfoService {
     }));
 
      }
+    public getMusic(): Observable<any> {
+      return this.http.get('./assets/random-play-list.json').pipe(map((response: any) => {
+        return response.json();
+    }));
+
+     }
 }

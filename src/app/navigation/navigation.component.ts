@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationInfoService } from '../services/navigation-info.service';
+import { ActivatedRoute, Router, NavigationExtras} from '@angular/router';
+
 
 @Component({
   selector: 'app-navigation',
@@ -8,8 +10,9 @@ import { NavigationInfoService } from '../services/navigation-info.service';
 })
 export class NavigationComponent implements OnInit {
   navigationInfo;
-  constructor(private _getNav: NavigationInfoService) { }
-
+  constructor(private _getNav: NavigationInfoService, private router:Router) { }
+  filterArray: any[]=[];
+  filterParam =[];
   ngOnInit() {
     this.getJson();
   }
@@ -21,4 +24,13 @@ export class NavigationComponent implements OnInit {
     });
 
   }
+  getFilters(filter,param) {
+          let navigationExtras: NavigationExtras = {
+            queryParams: {
+                [filter]: param
+            }
+        };
+    this.router.navigate(['songs-tile'], navigationExtras );
+
+}
 }

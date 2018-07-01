@@ -1,30 +1,83 @@
 .navigation-container {
-  padding-left: 10px;
   height: 100vh;
   overflow-y: auto;
+
   h5 {
     font-size: 16px;
     font-weight: 400;
-    padding: 30px 0;
+    padding: 30px 0 20px 0;
     margin: 0;
     text-transform: uppercase;
   }
+    .filters-options-container {
+      .title {
+       a{
+        color: #000;
+        display: block;
+        padding: 5px;
+            &:after {
+            content: '\f077';
+            font-family: FontAwesome;
+            font-size: 10px;
+            margin-left: 5px;
+          }
+        &.collapsed {
+            &:after {
+            content: '\f078';
+            font-family: FontAwesome;
+            font-size: 10px;
+            margin-left: 5px;
+          }
+        }
+      &:hover {
+        text-decoration: none;
+       }
+       }
+       &:hover {
+        background-color: #eee;
+        text-decoration: none;
+       }
+      }
   ul {
     padding: 0;
+    margin: 0;
     li {
       list-style-type: none;
-      margin: 20px 0;
+      padding: 5px 10px;
+      margin: 15px 0;
       &:first-child {
         margin-top: 0;
       }
-      a {
+      &:hover {
+          background-color: #eee;
+      }
+      .custom-control {
+        .custom-control-input {
+            &:checked {
+          &+label {
+            color: #76abbd;
+          }
+          }
+          &:focus {
+          outline: none!important; 
+          box-shadow: none!important;         
+        }
+  }
+
+      label {
         font-size: 16px;
+        width: 100%;
         color: #666666;
         text-decoration: none;
-        &:hover {
-          color: #76abbd;
-        }
+        cursor: pointer;
       }
+    }
     }
   }
 }
+}
+.custom-radio .custom-control-input:checked~.custom-control-label::after {
+  background: #76abbd;
+  border-radius: 50px;
+}
+

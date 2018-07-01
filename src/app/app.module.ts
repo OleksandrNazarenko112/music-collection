@@ -8,7 +8,9 @@ import { MainComponent } from './main.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 import { NavigationInfoService } from './services/navigation-info.service';
 import { NavigationComponent } from './navigation/navigation.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
+import { TileContentViewComponent } from './tile-content-view/tile-content-view.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -19,7 +21,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     MainComponent,
     AudioPlayerComponent,
-    NavigationComponent
+    NavigationComponent,
+    TileContentViewComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient) {
                 deps: [HttpClient]
             }
         }),
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [MainComponent]
