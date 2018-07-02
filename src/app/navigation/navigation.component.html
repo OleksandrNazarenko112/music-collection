@@ -4,7 +4,7 @@
     <p class="title"><a data-toggle="collapse" href="#{{item.filterName}}" aria-expanded="false" class="collapsed">{{item.filterName}}</a></p>
     <ul class="collapse" id="{{item.filterName}}">
       <li *ngFor="let filter of navigationInfo?.settings?.filters[i].filtersType">
-        <a (click)="getFilters(item.filterName,filter.name)" class="custom-control custom-radio">
+        <a  (click)="getFilters(item.filterName,filter.name)" class="custom-control custom-radio">
           <input type="radio" name="{{item.filterName}}" class="custom-control-input" id="{{filter.name}}" >
           <label class="custom-control-label" for="{{filter.name}}">{{filter.name}}</label>
         </a>

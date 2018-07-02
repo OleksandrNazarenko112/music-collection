@@ -25,12 +25,15 @@ export class NavigationComponent implements OnInit {
 
   }
   getFilters(filter,param) {
-          let navigationExtras: NavigationExtras = {
+                let navigationExtras: NavigationExtras = {
             queryParams: {
-                [filter]: param
+                
             }
         };
+        navigationExtras.queryParams.filter = Array.from(new Set(this.filterArray));
+    this.filterParam.push(filter);
+    this.filterArray.push(param);
     this.router.navigate(['songs-tile'], navigationExtras );
-
-}
+console.log('массив поиска', navigationExtras.queryParams.filter);
+ }
 }
