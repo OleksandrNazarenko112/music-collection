@@ -30,6 +30,16 @@
         {"id": 1, "name": "Мужской"}, 
         {"id":1, "name":"Быcтрый"} 
       ]
+      },
+      {"id": 3,
+      "title": "Never Give Up",
+      "singer": "Sia",
+      "url": "http://files.voydoda.com/music/06/Sia_-_Never_Give_Up.mp3",
+      "albumCover": "http://www.hotpress.com/store/images/adm/19/19180/19180882_sia.jpg",
+      "filters" : [ 
+        {"id": 1, "name": "Женский"}, 
+        {"id":1, "name":"Быcтрый"} 
+      ]
       }
     ]
   }

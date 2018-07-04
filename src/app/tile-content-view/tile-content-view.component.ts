@@ -15,6 +15,8 @@ sub;
 page;
 sort;
 test;
+arr;
+
   constructor(public getMusic: NavigationInfoService, private route: ActivatedRoute,
     private router: Router) { }
 
@@ -25,28 +27,39 @@ test;
       .subscribe(params => {
         // Defaults to 0 if no query param provided.
         this.page = params;
-       this.songSorting();
-       console.log('cnhf', this.page.filter);
-      });
+       
+       this.page = Object.keys(this.page).map(val => this.page[val]);
+       
+     this.songSorting();
+this.arr = this.page.length;
+      console.log('this.page', this.page.length);
 
+      });
   }
   public loadMusic() {
     this.getMusic.getMusic().subscribe(response => {
       this.songsList =  response.randomPlaylist.songs;
-        this.songSorting();
+      this.songSorting();
+      console.log(this.songsList)
     });
   };
+
  public songSorting() {
    this.sortResult = [];
+    console.log('this.page', this.page.lenght);
    console.log('список песен',this.songsList)
    this.songsList.forEach((song) => {
    for (let i = 0; i < song.filters.length; i++) {  
-     if (song.filters[i].name == this.page.filter) {
+     for(let k = 0; k < this.arr; k++) {
+     if (song.filters[i].name == this.page[k]) {
+       
          this.sortResult.push(song);
-         console.log('enter');
-         console.log('song list', this.songsList);
+       
+         console.log('song result', this.sortResult);
       } 
+
+    }
      }
-   });
-  }
+  });
+}
 }

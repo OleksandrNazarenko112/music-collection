@@ -25,15 +25,8 @@ export class NavigationComponent implements OnInit {
 
   }
   getFilters(filter,param) {
-                let navigationExtras: NavigationExtras = {
-            queryParams: {
-                
-            }
-        };
-        navigationExtras.queryParams.filter = Array.from(new Set(this.filterArray));
-    this.filterParam.push(filter);
-    this.filterArray.push(param);
-    this.router.navigate(['songs-tile'], navigationExtras );
-console.log('массив поиска', navigationExtras.queryParams.filter);
+
+   this.router.navigate(['songs-tile'], { queryParams: { [filter]: param}, queryParamsHandling: 'merge' });
+
  }
 }
