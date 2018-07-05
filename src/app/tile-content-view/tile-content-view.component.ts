@@ -12,30 +12,19 @@ export class TileContentViewComponent implements OnInit {
 public songsList: any[] = [];
 public sortResult: Array<any>;
 sub;
-page;
-sort;
-test;
-arr;
+public queryParams: any;
 
   constructor(public getMusic: NavigationInfoService, private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
     this.loadMusic();
-        this.sub = this.route
-      .queryParams
-      .subscribe(params => {
-        // Defaults to 0 if no query param provided.
-        this.page = params;
-       
-       this.page = Object.keys(this.page).map(val => this.page[val]);
-       
-     this.songSorting();
-this.arr = this.page.length;
-      console.log('this.page', this.page.length);
-
-      });
+        this.sub = this.route.queryParams.subscribe(params => {   
+          this.queryParams = Object.keys(params).map(val => params[val]); 
+          this.songSorting();
+     });
   }
+
   public loadMusic() {
     this.getMusic.getMusic().subscribe(response => {
       this.songsList =  response.randomPlaylist.songs;
@@ -46,20 +35,13 @@ this.arr = this.page.length;
 
  public songSorting() {
    this.sortResult = [];
-    console.log('this.page', this.page.lenght);
-   console.log('список песен',this.songsList)
-   this.songsList.forEach((song) => {
-   for (let i = 0; i < song.filters.length; i++) {  
-     for(let k = 0; k < this.arr; k++) {
-     if (song.filters[i].name == this.page[k]) {
-       
-         this.sortResult.push(song);
-       
-         console.log('song result', this.sortResult);
-      } 
-
-    }
-     }
-  });
-}
+     this.songsList.forEach((song) => {
+        let success = this.queryParams.every((val) => {
+          return song.filters.indexOf(val) != -1;
+      });
+     if(success) {
+      this.sortResult.push(song);
+      }
+    });
+  }
 }
