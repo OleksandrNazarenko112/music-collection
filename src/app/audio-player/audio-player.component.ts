@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data-service.service';
 
 @Component({
   selector: 'app-audio-player',
@@ -9,17 +10,35 @@ export class AudioPlayerComponent implements OnInit {
   audio: any;
   duration: any;
   elapsed: any;
+  playList: any;
+  albumCover;
+  index = 0;
   currentSongUrl = 'http://drivemusic.me/dl/2THf6oL2n7pS1eol8v7HZA/1530228125/download_music/2017/03/portugal.-the-man-feel-it-still.mp3'
-  constructor() { }
+  constructor(private data: DataService) { 
+     }
 
    ngOnInit(): void {
      this.initAudioPlayer();
      this.audio.volume = 0.7;
+     this. playlistData();
   }
-  initAudioPlayer(): void {
-    this.audio = new Audio(this.currentSongUrl);
+    initAudioPlayer(): void {
+    this.audio = new Audio();
+    this.audio.src = this.currentSongUrl;
   }
-  togglePlay() {
+    playlistData() {
+     this.data.playlist.subscribe((songs) => { 
+      return this.playList = songs;        
+       });
+  }
+    setPlayerData() {
+      this.audio.src = this.playList[0].url;
+      
+      console.log('длинна', this.audio.duration);
+      console.log('cur', this.currentSongUrl);
+      this.currentSongUrl = this.playList[0].url;
+  }
+    togglePlay() {
      if (this.audio.paused) {
        this.audio.play();
        this.culcSongDuration();

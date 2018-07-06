@@ -1,4 +1,4 @@
-<div class="audo-player">
+<div class="audo-player" *ngIf="playList">
   <div class="container-fluid">
     <div class="row ">
       <div class="col-lg-2 col-xs-12 controls align-self-center">
@@ -9,12 +9,12 @@
         </ul>
       </div>
       <div class="col-lg-1 col-xs-12  album-cover-container align-self-center">
-        <img src="./assets/music/album-cover/portogal-feel_i_still.jpg">
+        <img [src]=playList[index]?.albumCover>
       </div>
       <div class="col-lg-6 col-xs-12  track-progress-container align-self-center">
         <div class="audio-controls-group">
           <div class="col-lg-11">
-            <h6 *ngIf="audio.duration">Portugal - <span>Feel it still</span></h6>
+            <h6 *ngIf="audio.duration">{{playList[index]?.singer}} - <span>{{playList[index]?.title}}</span></h6>
             <div class="progress-container" >
               <div class="progress"[style.width.%]="audio.currentTime / audio.duration * 100"></div>
               <input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)">
@@ -23,7 +23,7 @@
           </div>
           <div class="controls align-self-center">
             <ul>
-              <li class=""><a [href]="currentSongUrl" download><i class="fa fa-cloud-download"></i></a></li>
+              <li class=""><a [href]=playList[index]?.url download><i class="fa fa-cloud-download"></i></a></li>
             </ul>
           </div>
         </div>
