@@ -26,11 +26,11 @@ public queryParams: any;
           this.songSorting();
      });
   }
+  
   public loadMusic():void {
     this.getMusic.getMusic().subscribe(response => {
       this.songsList =  response.randomPlaylist.songs;
       this.songSorting();
-      console.log(this.songsList)
     });
   };
 
@@ -44,11 +44,9 @@ public queryParams: any;
         this.sortResult.push(song);
       }
     });
-     console.log('res',this.sortResult)
   }
 
   playerStart(index) {
      this.data.currPlayList(this.sortResult, index);
-     console.log('passresult',this.sortResult);
  }
 }

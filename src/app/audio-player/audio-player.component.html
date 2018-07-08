@@ -3,13 +3,14 @@
     <div class="row ">
       <div class="col-lg-2 col-xs-12 controls align-self-center">
         <ul>
-          <li class="backward" (click)="test()"><a href="javascript:void(0)"><i class="fa fa-backward"></i></a></li>
+          <li class="backward" (click)="prevpSong()"><a href="javascript:void(0)" [class.isDisabled]="index==0"><i class="fa fa-backward"></i></a></li>
           <li class="play-pause"><a href="javascript:void(0)" (click)="togglePlay()"><i [className]="audio.paused ? 'fa fa-play' : 'fa fa-pause'"></i></a></li>
-          <li class="forward"><a href="javascript:void(0)"><i class="fa fa fa-forward"></i></a></li>
+          <li class="forward" (click)="skipSong()" ><a href="javascript:void(0)" [class.isDisabled]="index+1 >= playList.length"><i class="fa fa fa-forward"></i></a></li>
         </ul>
       </div>
       <div class="col-lg-1 col-xs-12  album-cover-container align-self-center">
         <img [src]=playList[index]?.albumCover>
+        <span class="loader"></span>
       </div>
       <div class="col-lg-6 col-xs-12  track-progress-container align-self-center">
         <audio #audioPlayer [src]=playList[index]?.url></audio>
@@ -20,7 +21,8 @@
               <div class="progress"[style.width.%]="audio.currentTime / audio.duration * 100"></div>
               <input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)">
             </div>
-            <span class="track-timer" *ngIf="playList">{{elapsed}} / {{duration}}</span>
+            <span class="track-timer" [hidden]="audio.duration">0:00 / 0:00</span>
+            <span class="track-timer" [hidden]="!audio.duration">{{elapsed}} / {{duration}}</span>
           </div>
           <div class="controls align-self-center">
             <ul>
@@ -33,7 +35,7 @@
         <div class="audio-controls-group volume-group">
           <div class="controls col-lg-1 align-self-center">
             <ul>
-              <li><a href="javascript:void(0)" (click)="mute()"><i class="fa fa-volume-up"  [className]="audio.volume > 0 ? 'fa fa-volume-up' : 'fa fa-volume-off'" ></i></a></li>
+              <li><a href="javascript:void(0)" (click)="mute()"><i class="fa fa-volume-up"  [className]="audio.volume > 0 ? 'fa fa-volume-up' : 'fa fa-volume-off'"></i></a></li>
             </ul>
           </div>
           <div class="col-lg-7 col-xs-12 volume align-self-center">

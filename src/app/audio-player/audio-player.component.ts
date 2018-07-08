@@ -12,6 +12,7 @@ export class AudioPlayerComponent implements OnInit {
   elapsed: any;
   playList: any;
   index:any;
+  loading = true;
 
   @ViewChild('audioPlayer') audioPlayerRef: ElementRef;
 
@@ -21,6 +22,8 @@ export class AudioPlayerComponent implements OnInit {
      this.audio = this.audioPlayerRef.nativeElement;
      this.audio.volume = 0.7;
      this.playlistData(); 
+     this.nextSong();
+     this.loadingAudio();
   }
 
    playlistData() {
@@ -29,10 +32,8 @@ export class AudioPlayerComponent implements OnInit {
       });
       this.data.playlist.subscribe((songs:any) => {   
          this.playList = songs; 
-         console.log(songs)
          if(songs) {
-           setTimeout(()=>{ this.togglePlay(); }, 100)
-          
+           setTimeout(()=>{ this.togglePlay(); }, 100)  
          }
        });
   }
@@ -40,10 +41,8 @@ export class AudioPlayerComponent implements OnInit {
     togglePlay() {                      
      if (this.audio.paused) {
        this.audio.play();
-       this.culcSongDuration();
        this.currentTimeUpdate();
        this.formatTime();
-       this.nextSong();
       } else {  
        this.audio.pause();
       }
@@ -53,8 +52,12 @@ export class AudioPlayerComponent implements OnInit {
       let minutes, seconds;
       minutes = Math.floor(this.audio.duration / 60)
       seconds = Math.round(this.audio.duration % 60);
+      if(isNaN(this.audio.duration)) {
+         this.duration = '0:00'
+      } else {
       seconds = (seconds >= 10) ? seconds : '0' + seconds;
       this.duration = minutes  + ':' + seconds;
+      }
     }
 
   skipTime(time) {
@@ -68,12 +71,14 @@ export class AudioPlayerComponent implements OnInit {
         }
     }
   formatTime() {
+      this.loading = false;
       let minutes, seconds;
       seconds = Math.round(this.audio.currentTime);
       minutes = Math.floor(seconds / 60);
       seconds = Math.floor(seconds % 60);
       seconds = (seconds >= 10) ? seconds : '0' + seconds;
       this.elapsed = minutes + ':' + seconds;
+      this.culcSongDuration();
   }
 
   currentTimeUpdate() { 
@@ -84,9 +89,13 @@ export class AudioPlayerComponent implements OnInit {
   nextSong() { 
       this.audio.addEventListener('ended', (event) => {
       this.index++;
-      this.audio.play();
-      console.log('next song', this.index)
-        });
+      this.audio.pause();
+      if(this.index >= this.playList.length) {
+         this.index = this.index -1;
+      }else{
+       setTimeout(()=>{ this.audio.play(); }, 500)
+      }
+    });
   }
   mute() {
       this.audio.muted = !this.audio.muted;
@@ -97,5 +106,29 @@ export class AudioPlayerComponent implements OnInit {
         this.audio.volume = 0.7;
       }
     }
+
+  loadingAudio() {
+     this.audio.addEventListener('canplay', (event) => {
+      this.loading = true; 
+    })
+  }
+  skipSong() {
+    if(this.index+1 >= this.playList.length){
+      return false;
+    }else{
+       this.index++;
+      setTimeout(()=>{ this.audio.play(); }, 500)
+    }
+        
+    }
+
+  prevpSong() {
+    if(this.index==0){
+        return false;
+    } else{
+    this.index--;
+    setTimeout(()=>{ this.audio.play(); }, 500)
+  }
+}
 }
 

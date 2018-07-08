@@ -1,3 +1,8 @@
+.isDisabled {
+  color: #dcd9d9!important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 .audo-player {
   display: none;
   position: fixed;
@@ -42,7 +47,7 @@
     }
   }
   .album-cover-container {
-
+position: relative;
     img {
       height: 60px;
       width: 60px;
