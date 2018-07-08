@@ -1,9 +1,9 @@
-<div class="audo-player" *ngIf="playList">
+<div class="audo-player" [class.show]="playList">
   <div class="container-fluid">
     <div class="row ">
       <div class="col-lg-2 col-xs-12 controls align-self-center">
         <ul>
-          <li class="backward"><a href="javascript:void(0)"><i class="fa fa-backward"></i></a></li>
+          <li class="backward" (click)="test()"><a href="javascript:void(0)"><i class="fa fa-backward"></i></a></li>
           <li class="play-pause"><a href="javascript:void(0)" (click)="togglePlay()"><i [className]="audio.paused ? 'fa fa-play' : 'fa fa-pause'"></i></a></li>
           <li class="forward"><a href="javascript:void(0)"><i class="fa fa fa-forward"></i></a></li>
         </ul>
@@ -12,14 +12,15 @@
         <img [src]=playList[index]?.albumCover>
       </div>
       <div class="col-lg-6 col-xs-12  track-progress-container align-self-center">
+        <audio #audioPlayer [src]=playList[index]?.url></audio>
         <div class="audio-controls-group">
           <div class="col-lg-11">
-            <h6 *ngIf="audio.duration">{{playList[index]?.singer}} - <span>{{playList[index]?.title}}</span></h6>
+            <h6 *ngIf="playList">{{playList[index]?.singer}} - <span>{{playList[index]?.title}}</span></h6>
             <div class="progress-container" >
               <div class="progress"[style.width.%]="audio.currentTime / audio.duration * 100"></div>
               <input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)">
             </div>
-            <span class="track-timer" *ngIf="audio.duration">{{elapsed}} / {{duration}}</span>
+            <span class="track-timer" *ngIf="playList">{{elapsed}} / {{duration}}</span>
           </div>
           <div class="controls align-self-center">
             <ul>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataService } from '../services/data-service.service';
 
 @Component({
@@ -11,53 +11,56 @@ export class AudioPlayerComponent implements OnInit {
   duration: any;
   elapsed: any;
   playList: any;
-  albumCover;
-  index = 0;
-  currentSongUrl = 'http://drivemusic.me/dl/2THf6oL2n7pS1eol8v7HZA/1530228125/download_music/2017/03/portugal.-the-man-feel-it-still.mp3'
+  index:any;
+
+  @ViewChild('audioPlayer') audioPlayerRef: ElementRef;
+
   constructor(private data: DataService) { 
      }
-
    ngOnInit(): void {
-     this.initAudioPlayer();
+     this.audio = this.audioPlayerRef.nativeElement;
      this.audio.volume = 0.7;
-     this. playlistData();
+     this.playlistData(); 
   }
-    initAudioPlayer(): void {
-    this.audio = new Audio();
-    this.audio.src = this.currentSongUrl;
-  }
-    playlistData() {
-     this.data.playlist.subscribe((songs) => { 
-      return this.playList = songs;        
+
+   playlistData() {
+      this.data.songIndex.subscribe((index:any) => {  
+        this.index = index; 
+      });
+      this.data.playlist.subscribe((songs:any) => {   
+         this.playList = songs; 
+         console.log(songs)
+         if(songs) {
+           setTimeout(()=>{ this.togglePlay(); }, 100)
+          
+         }
        });
   }
-    setPlayerData() {
-      this.audio.src = this.playList[0].url;
-      
-      console.log('длинна', this.audio.duration);
-      console.log('cur', this.currentSongUrl);
-      this.currentSongUrl = this.playList[0].url;
-  }
-    togglePlay() {
+
+    togglePlay() {                      
      if (this.audio.paused) {
        this.audio.play();
        this.culcSongDuration();
        this.currentTimeUpdate();
        this.formatTime();
+       this.nextSong();
       } else {  
        this.audio.pause();
       }
     }
-  culcSongDuration() {
+
+   culcSongDuration() {
       let minutes, seconds;
       minutes = Math.floor(this.audio.duration / 60)
       seconds = Math.round(this.audio.duration % 60);
       seconds = (seconds >= 10) ? seconds : '0' + seconds;
       this.duration = minutes  + ':' + seconds;
     }
+
   skipTime(time) {
       this.audio.currentTime = time;
     }
+
   setVolume(volume) {
       this.audio.volume = volume;
        if((this.audio.muted && this.audio.volume > 0) || this.audio.volume == 0) {
@@ -72,10 +75,18 @@ export class AudioPlayerComponent implements OnInit {
       seconds = (seconds >= 10) ? seconds : '0' + seconds;
       this.elapsed = minutes + ':' + seconds;
   }
+
   currentTimeUpdate() { 
       this.audio.addEventListener('timeupdate', (event) => {
       this.formatTime();
         }, false);
+  }
+  nextSong() { 
+      this.audio.addEventListener('ended', (event) => {
+      this.index++;
+      this.audio.play();
+      console.log('next song', this.index)
+        });
   }
   mute() {
       this.audio.muted = !this.audio.muted;

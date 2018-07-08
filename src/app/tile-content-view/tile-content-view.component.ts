@@ -48,7 +48,7 @@ public queryParams: any;
   }
 
   playerStart(index) {
-     this.data.currPlayList(this.sortResult);
+     this.data.currPlayList(this.sortResult, index);
      console.log('passresult',this.sortResult);
  }
 }
