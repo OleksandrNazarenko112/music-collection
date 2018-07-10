@@ -38,7 +38,8 @@ export class AudioPlayerComponent implements OnInit {
        });
   }
 
-    togglePlay() {                      
+    togglePlay() { 
+    console.log(this.audio.readyState)                     
      if (this.audio.paused) {
        this.audio.play();
        this.currentTimeUpdate();
@@ -108,7 +109,7 @@ export class AudioPlayerComponent implements OnInit {
     }
 
   loadingAudio() {
-     this.audio.addEventListener('canplay', (event) => {
+     this.audio.addEventListener('waiting', (event) => {
       this.loading = true; 
     })
   }

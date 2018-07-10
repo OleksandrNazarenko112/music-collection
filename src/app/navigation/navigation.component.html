@@ -5,7 +5,7 @@
     <ul class="collapse" id="{{item.filterName}}">
       <li *ngFor="let filter of navigationInfo?.settings?.filters[i].filtersType">
         <a (click)="getFilters(item.filterName,filter)" class="custom-control custom-radio">
-          <input type="radio" name="{{item.filterName}}" class="custom-control-input" id="{{filter}}" >
+          <input type="radio" name="{{item.filterName}}" [value]=item.filtersType[i] class="custom-control-input" id="{{filter}}" [checked]="">
           <label class="custom-control-label" for="{{filter}}">{{filter}}</label>
         </a>
       </li>

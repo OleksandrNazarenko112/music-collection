@@ -46,7 +46,10 @@ public queryParams: any;
     });
   }
 
-  playerStart(index) {
+ public playerStart(index):void {
      this.data.currPlayList(this.sortResult, index);
+ }
+ currentPlayingSong(index) {
+   return this.sortResult[index].url === 'http://dl1-1.mp3party.net/download/37976';
  }
 }
