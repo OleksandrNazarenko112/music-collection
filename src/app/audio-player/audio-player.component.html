@@ -3,7 +3,7 @@
     <div class="row ">
       <div class="col-lg-2 col-xs-12 controls align-self-center">
         <ul>
-          <li class="backward" (click)="prevpSong()"><a href="javascript:void(0)" [class.isDisabled]="index==0"><i class="fa fa-backward"></i></a></li>
+          <li class="backward" (click)="prevSong()"><a href="javascript:void(0)" [class.isDisabled]="index==0"><i class="fa fa-backward"></i></a></li>
           <li class="play-pause"><a href="javascript:void(0)" (click)="togglePlay()"><i [className]="audio.paused ? 'fa fa-play' : 'fa fa-pause'"></i></a></li>
           <li class="forward" (click)="skipSong()" ><a href="javascript:void(0)" [class.isDisabled]="index+1 >= playList.length"><i class="fa fa fa-forward"></i></a></li>
         </ul>

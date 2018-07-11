@@ -13,6 +13,7 @@ export class AudioPlayerComponent implements OnInit {
   playList: any;
   index:any;
   loading = true;
+  isPlaying: boolean;
 
   @ViewChild('audioPlayer') audioPlayerRef: ElementRef;
 
@@ -38,15 +39,17 @@ export class AudioPlayerComponent implements OnInit {
        });
   }
 
-    togglePlay() { 
-    console.log(this.audio.readyState)                     
+    togglePlay() {                     
      if (this.audio.paused) {
        this.audio.play();
+       this.isPlaying = true;
        this.currentTimeUpdate();
        this.formatTime();
       } else {  
        this.audio.pause();
+       this.isPlaying = false;
       }
+     this.currentSongUrl();
     }
 
    culcSongDuration() {
@@ -96,6 +99,7 @@ export class AudioPlayerComponent implements OnInit {
       }else{
        setTimeout(()=>{ this.audio.play(); }, 500)
       }
+      this.currentSongUrl();
     });
   }
   mute() {
@@ -118,18 +122,23 @@ export class AudioPlayerComponent implements OnInit {
       return false;
     }else{
        this.index++;
+       this.currentSongUrl();
       setTimeout(()=>{ this.audio.play(); }, 500)
     }
         
     }
 
-  prevpSong() {
+  prevSong() {
     if(this.index==0){
         return false;
     } else{
     this.index--;
+    this.currentSongUrl();
     setTimeout(()=>{ this.audio.play(); }, 500)
   }
 }
+  currentSongUrl(){
+    this.data.currentSong(this.playList[this.index].url, this.isPlaying);
+  }
 }
 

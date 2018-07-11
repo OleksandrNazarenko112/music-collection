@@ -44,6 +44,15 @@
         filter: blur(2px);
       }
     }
+    &.active-song {
+      .overlay {
+        opacity: 1;
+      }
+      img {
+        -webkit-filter: blur(2px);
+        filter: blur(2px);
+      }
+    }
   }
   .song-title {
     margin: 10px 0;

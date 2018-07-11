@@ -12,6 +12,8 @@ export class TileContentViewComponent implements OnInit {
 public songsList: any[] = [];
 public sortResult: Array<any>;
 public queryParams: any;
+currentSong:any;
+isPlaying:boolean;
 
   constructor(public getMusic: NavigationInfoService,
               private route: ActivatedRoute,
@@ -48,8 +50,20 @@ public queryParams: any;
 
  public playerStart(index):void {
      this.data.currPlayList(this.sortResult, index);
+     this.currentPlayingSong(index);
  }
  currentPlayingSong(index) {
-   return this.sortResult[index].url === 'http://dl1-1.mp3party.net/download/37976';
+    this.data.nowPlaying.subscribe((url:any) => {  
+      this.currentSong =  this.sortResult[index].url === url;
+      });
+    this.data.isPlaying.subscribe((play:any) => {  
+          this.isPlaying = play;
+      }); 
+    if(this.currentSong && this.isPlaying) {
+       return this.currentSong;
+    }else{
+      return false;
+    }
  }
+
 }
