@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-lg-2" *ngFor=" let song of sortResult; let i = index;">
         <div class="album-cover-container" [class.active-song]="currentPlayingSong(i)">
-          <a href="javascript:void(0)"><img [src]=song.albumCover alt=""></a>
+          <span ><img [src]=song.albumCover alt=""></span>
           <div class="overlay">
-            <a href="javascript:void(0)" (click)=playerStart(i)><i [className]="currentPlayingSong(i) ? 'fa fa-pause' : 'fa fa-play'"></i></a>
+            <span (click)=playerStart(i)><i [className]="currentPlayingSong(i) ? 'fa fa-pause' : 'fa fa-play'"></i></span>
           </div>
         </div>
         <div class="song-title">

@@ -53,7 +53,7 @@ isPlaying:boolean;
      this.currentPlayingSong(index);
  }
  currentPlayingSong(index) {
-    this.data.nowPlaying.subscribe((url:any) => {  
+    this.data.nowPlaying.subscribe((url:any) => {     
       this.currentSong =  this.sortResult[index].url === url;
       });
     this.data.isPlaying.subscribe((play:any) => {  
@@ -61,7 +61,7 @@ isPlaying:boolean;
       }); 
     if(this.currentSong && this.isPlaying) {
        return this.currentSong;
-    }else{
+    } else {
       return false;
     }
  }

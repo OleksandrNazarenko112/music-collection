@@ -10,11 +10,17 @@ import { ActivatedRoute, Router, NavigationExtras} from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
   navigationInfo;
-  constructor(private _getNav: NavigationInfoService, private router:Router) { }
-  filterArray: any[]=[];
-  filterParam =[];
+  defaultFilters: any[] =[];
+  constructor(private _getNav: NavigationInfoService, 
+              private router:Router,
+              private route: ActivatedRoute) { }
+
   ngOnInit() {
     this.getJson();
+           this.route.queryParams.subscribe(params => {   
+          this.defaultFilters = Object.keys(params).map(val => params[val]); 
+        console.log(params);
+     });
   }
   getJson() {
 
@@ -25,7 +31,6 @@ export class NavigationComponent implements OnInit {
 
   }
   getFilters(filter,param) {
-
    this.router.navigate(['songs-tile'], { queryParams: { [filter]: param}, queryParamsHandling: 'merge' });
 
  }

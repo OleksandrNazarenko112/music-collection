@@ -3,9 +3,9 @@
     <div class="row ">
       <div class="col-lg-2 col-xs-12 controls align-self-center">
         <ul>
-          <li class="backward" (click)="prevSong()"><a href="javascript:void(0)" [class.isDisabled]="index==0"><i class="fa fa-backward"></i></a></li>
-          <li class="play-pause"><a href="javascript:void(0)" (click)="togglePlay()"><i [className]="audio.paused ? 'fa fa-play' : 'fa fa-pause'"></i></a></li>
-          <li class="forward" (click)="skipSong()" ><a href="javascript:void(0)" [class.isDisabled]="index+1 >= playList.length"><i class="fa fa fa-forward"></i></a></li>
+          <li class="backward" (click)="prevSong()"><span [class.isDisabled]="index==0"><i class="fa fa-backward"></i></span></li>
+          <li class="play-pause"><span (click)="togglePlay()"><i [className]="audio.paused ? 'fa fa-play' : 'fa fa-pause'"></i></span></li>
+          <li class="forward" (click)="skipSong()" ><span [class.isDisabled]="index+1 >= playList.length"><i class="fa fa fa-forward"></i></span></li>
         </ul>
       </div>
       <div class="col-lg-1 col-xs-12  album-cover-container align-self-center">
@@ -26,7 +26,7 @@
           </div>
           <div class="controls align-self-center">
             <ul>
-              <li class=""><a [href]=playList[index]?.url download><i class="fa fa-cloud-download"></i></a></li>
+              <li><a [href]=playList[index]?.url download><i class="fa fa-cloud-download"></i></a></li>
             </ul>
           </div>
         </div>
@@ -35,7 +35,7 @@
         <div class="audio-controls-group volume-group">
           <div class="controls col-lg-1 align-self-center">
             <ul>
-              <li><a href="javascript:void(0)" (click)="mute()"><i class="fa fa-volume-up"  [className]="audio.volume > 0 ? 'fa fa-volume-up' : 'fa fa-volume-off'"></i></a></li>
+              <li><span (click)="mute()"><i class="fa fa-volume-up"  [className]="audio.volume > 0 ? 'fa fa-volume-up' : 'fa fa-volume-off'"></i></span></li>
             </ul>
           </div>
           <div class="col-lg-7 col-xs-12 volume align-self-center">

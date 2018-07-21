@@ -51,7 +51,8 @@
       li {
         list-style-type: none;
         width: 50px;
-        a {
+        span, a {
+          cursor: pointer;
           color: #76abbd;
           font-size: 25px;
           display: flex;
