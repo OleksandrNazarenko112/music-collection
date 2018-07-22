@@ -1,0 +1,146 @@
+{
+  "randomPlaylist": {
+    "songs" : [
+      {"id": 0,
+      "title": "Way down we go",
+      "singer": "Kaleo",
+      "url": "https://fex.net/load/282168001195/607587606",
+      "albumCover": "https://fex.net/show/282168001195/607587908?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+        "Средний"
+      ]
+      },
+      {"id": 1,
+      "title": "West Coast",
+      "singer": "Lana del ray",
+      "url": "https://fex.net/load/282168001195/607587735",
+      "albumCover": "https://fex.net/show/282168001195/607587909?1600w,0",
+      "filters" : [ 
+        "Женский",
+        "Медленный"
+      ]
+      },
+      {"id": 2,
+      "title": "You spin me round",
+      "singer": "Letomi",
+      "url": "https://fex.net/load/282168001195/607587520",
+      "albumCover": "https://fex.net/show/282168001195/607587911?1600w,0",
+      "filters" : [ 
+        "Женский", 
+       "Средний" 
+      ]
+      },
+      {"id": 3,
+      "title": "Kissing strangers",
+      "singer": "DNCE",
+      "url": "https://fex.net/load/282168001195/607586692",
+      "albumCover": "https://fex.net/show/282168001195/607587913?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+       "Быcтрый"
+      ]
+      },
+      {"id": 4,
+      "title": "TDME",
+      "singer": "Антитела",
+      "url": "https://fex.net/load/282168001195/607586646",
+      "albumCover": "https://fex.net/show/282168001195/607587920?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+       "Медленный"
+      ]
+      },
+      {"id": 5,
+      "title": "The greatest",
+      "singer": "Sia",
+      "url": "https://fex.net/load/282168001195/607587350",
+      "albumCover": "https://fex.net/show/282168001195/607587922?1600w,0",
+      "filters" : [ 
+       "Женский", 
+       "Быcтрый" 
+      ]
+      },
+      {"id": 6,
+      "title": "Gravity",
+      "singer": "We are",
+      "url": "https://fex.net/load/282168001195/607587688",
+      "albumCover": "https://fex.net/show/282168001195/607587924?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+       "Быcтрый"
+      ]
+      },
+      {"id": 7,
+      "title": "feel it still",
+      "singer": "Portugal",
+      "url": "https://fex.net/load/282168001195/607587391",
+      "albumCover": "https://fex.net/show/282168001195/607587927?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+       "Быcтрый"
+      ]
+      },
+      {"id": 8,
+      "title": "Adventure of a lifetime",
+      "singer": "Coldplay",
+      "url": "https://fex.net/load/282168001195/607587292",
+      "albumCover": "https://fex.net/show/282168001195/607587928?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+       "Быcтрый"
+      ]
+      },
+      {"id": 9,
+      "title": "In the pines",
+      "singer": "Janel Drewis",
+      "url": "https://fex.net/load/282168001195/607587900",
+      "albumCover": "https://fex.net/show/282168001195/607587931?1600w,0",
+      "filters" : [ 
+        "Женский",
+        "Медленный"
+      ]
+      },
+      {"id": 10,
+      "title": "Havana",
+      "singer": "Camila Cabello",
+      "url": "https://fex.net/load/282168001195/607587644",
+      "albumCover": "https://fex.net/show/282168001195/607587934?1600w,0",
+      "filters" : [ 
+       "Женский",
+       "Быcтрый"
+      ]
+      },
+      {"id": 11,
+      "title": "That's how you write a song",
+      "singer": "Alexander Rybak",
+      "url": "https://fex.net/load/282168001195/607665612",
+      "albumCover": "https://fex.net/show/282168001195/607587937?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+       "Быcтрый"
+      ]
+      },
+      {"id": 12,
+      "title": "Mama said knock you out",
+      "singer": "L.L. Cool J",
+      "url": "https://fex.net/load/282168001195/607854822",
+      "albumCover": "https://fex.net/show/282168001195/607862127?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+       "Быcтрый"
+      ]
+      },
+      {"id": 13,
+      "title": "Never give up",
+      "singer": "Sia",
+      "url": "https://fex.net/load/282168001195/607894885",
+      "albumCover": "https://fex.net/show/282168001195/607892718?1600w,0",
+      "filters" : [ 
+       "Женский",
+       "Быcтрый"
+      ]
+      }
+    ]
+  }
+}

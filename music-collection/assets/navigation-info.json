@@ -1,0 +1,38 @@
+{
+  "settings": {
+      "genre": [
+        "pop", "rock", "folk", "rap", "test"
+      ],
+      "language": [
+      "en", "ua", "ru"
+      ],
+      "bestFit": [
+      "Клип", "Сборы невесты", "Выкуп" ,
+      "Первый танец"
+      ],
+      "playlist": [
+        { "name":"Случайный плейлист", 
+          "route": "random_playlist"
+        }
+      ],
+      "filters": [
+        {
+          "filterName": "Вокал",
+          "filtersType": [
+            "Мужской", 
+            "Женский", 
+            "Дует", 
+            "Минус"
+         ]
+        },
+        {
+        "filterName": "Темп",
+          "filtersType": [ 
+          "Быcтрый", 
+          "Медленный",
+          "Средний"
+      ]
+        }
+      ]
+  }
+}
