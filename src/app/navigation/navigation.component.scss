@@ -1,7 +1,30 @@
 .navigation-container {
   height: 100vh;
   overflow-y: auto;
-
+  ul.playlists-container {
+    list-style-type: none;
+    padding: 0;
+    li {
+      margin-bottom: 5px;
+     a {
+      color: #000;
+      padding: 5px;
+      display: block;
+     &.active-playlist{
+          background-color: #76abbd;
+      border-radius: 4px;
+      color: #fff;
+      text-decoration: none;
+        }
+     &:hover  {
+      background-color: #76abbd;
+      border-radius: 4px;
+      color: #fff;
+      text-decoration: none;
+      }
+      }
+    }
+  }
   h5 {
     font-size: 16px;
     font-weight: 400;

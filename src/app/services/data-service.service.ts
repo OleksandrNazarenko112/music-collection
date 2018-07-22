@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class DataService {
   songIndex = this.currentSongIndex.asObservable();
   nowPlaying = this.currentSongUrl.asObservable();
   isPlaying = this.isSongPlaying.asObservable();
-
+ // private currentSongsArray = new Subject<any>();
+ private currentNestedRoute = new Subject<any>();
     constructor() {
     }
 
@@ -26,5 +28,14 @@ export class DataService {
     this.currentSongUrl.next(url);
     this.isSongPlaying.next(play)
     console.log('url', play);
+  }
+  // getCurrPlayList(songs: any, index:any) {
+  //   return this.currentSongsArray.asObservable();
+  // }
+  passCurrentNestedRoute(route: any){
+   this.currentNestedRoute.next(route);
+  }
+  getCurrentNestedRoute() {
+    return this.currentNestedRoute.asObservable();
   }
 }

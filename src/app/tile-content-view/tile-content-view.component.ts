@@ -27,6 +27,10 @@ isPlaying:boolean;
           this.queryParams = Object.keys(params).map(val => params[val]); 
           this.songSorting();
      });
+     this.route.params.subscribe(params => {
+         this.data.passCurrentNestedRoute(params);
+    });
+
   }
   
   public loadMusic():void {
@@ -65,5 +69,4 @@ isPlaying:boolean;
       return false;
     }
  }
-
 }

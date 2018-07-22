@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TileContentViewComponent } from './tile-content-view/tile-content-view.component';
 
 const appRoutes: Routes = [
-    { path: 'songs-tile', component: TileContentViewComponent }
+    { path: 'songs-tile/:playList', component: TileContentViewComponent }
 ];
 
 @NgModule({
