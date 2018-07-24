@@ -1,10 +1,16 @@
 <div class="navigation-container">
   <h5>Плейлисты</h5>
   <ul class="playlists-container">
-    <li *ngFor="let playList of navigationInfo?.settings?.playlist"><a [routerLink]="['songs-tile', playList.route]" routerLinkActive="active-playlist">{{playList.name}}</a></li>
+    <li *ngFor="let playList of navigationInfo?.settings?.playlist">
+      <a [routerLink]="['songs-tile', playList.route]" 
+         routerLinkActive="active-playlist">
+       {{playList.name}}
+      </a>
+    </li>
   </ul>
   <h5>Фильтры</h5>
-  <div class="filters-options-container" *ngFor="let item of navigationInfo?.settings?.filters; let i = index">
+  <div class="filters-options-container" 
+       *ngFor="let item of navigationInfo?.settings?.filters; let i = index">
     <p class="title">
       <a 
       data-toggle="collapse" 
@@ -14,14 +20,20 @@
       {{item.filterName}}
       </a>
     </p>
-    <ul class="collapse" id="{{item.filterName}}" [class.show]="defaultAciveFiltersList.includes(item.filterName)">
+    <ul class="collapse" 
+        id="{{item.filterName}}" 
+        [class.show]="defaultAciveFiltersList.includes(item.filterName)">
       <li *ngFor="let filter of navigationInfo?.settings?.filters[i].filtersType">
-        <a (click)="getFilters(item.filterName,filter)" class="custom-control custom-radio">
-          <input type="radio" name="{{item.filterName}}" class="custom-control-input" id="{{filter}}" [checked]="defaultFilters.includes(filter)">
+        <a (click)="getFilters(item.filterName,filter)" 
+           class="custom-control custom-radio">
+          <input type="radio" 
+                 name="{{item.filterName}}" 
+                 class="custom-control-input" 
+                 id="{{filter}}" 
+                 [checked]="defaultFilters.includes(filter)">
           <label class="custom-control-label" for="{{filter}}">{{filter}}</label>
         </a>
       </li>
     </ul>
   </div>
 </div>
-

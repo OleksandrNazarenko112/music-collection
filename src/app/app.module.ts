@@ -4,7 +4,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { MainComponent } from './main.component';
+import { AppComponent } from './app.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 import { NavigationInfoService } from './services/navigation-info.service';
 import { DataService } from './services/data-service.service';
@@ -20,7 +20,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    MainComponent,
+    AppComponent,
     AudioPlayerComponent,
     NavigationComponent,
     TileContentViewComponent
@@ -40,6 +40,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [MainComponent]
+  bootstrap: [AppComponent]
 })
 export class appModule { }

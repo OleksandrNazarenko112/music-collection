@@ -17,6 +17,8 @@ export class DataService {
   isPlaying = this.isSongPlaying.asObservable();
  // private currentSongsArray = new Subject<any>();
  private currentNestedRoute = new Subject<any>();
+// private currentSongUrlTest = new Subject<any>();
+
     constructor() {
     }
 
@@ -27,7 +29,6 @@ export class DataService {
   currentSong(url: any, play: any) {
     this.currentSongUrl.next(url);
     this.isSongPlaying.next(play)
-    console.log('url', play);
   }
   // getCurrPlayList(songs: any, index:any) {
   //   return this.currentSongsArray.asObservable();
@@ -38,4 +39,11 @@ export class DataService {
   getCurrentNestedRoute() {
     return this.currentNestedRoute.asObservable();
   }
+
+  // getCurrentSongUrl() {
+  //   return this.currentSongUrlTest.asObservable();
+  // }
+  // passCurrentSongUrl(songUrl: any){
+  //    this.currentSongUrlTest.next(songUrl);
+  // }
 }

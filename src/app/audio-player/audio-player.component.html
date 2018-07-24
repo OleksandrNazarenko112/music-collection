@@ -4,7 +4,7 @@
       <div class="col-lg-2 col-xs-12 controls align-self-center">
         <ul>
           <li class="backward" (click)="prevSong()"><span [class.isDisabled]="index==0"><i class="fa fa-backward"></i></span></li>
-          <li class="play-pause"><span (click)="togglePlay()"><i [className]="audio.paused ? 'fa fa-play' : 'fa fa-pause'"></i></span></li>
+          <li class="play-pause"><span (click)="togglePlay()"><i [className]="!isPlaying ? 'fa fa-play' : 'fa fa-pause'"></i></span></li>
           <li class="forward" (click)="skipSong()" ><span [class.isDisabled]="index+1 >= playList.length"><i class="fa fa fa-forward"></i></span></li>
         </ul>
       </div>

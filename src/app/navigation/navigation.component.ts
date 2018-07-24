@@ -33,10 +33,6 @@ export class NavigationComponent implements OnInit {
           this.navigationInfo = response;
     });
   }
- // resetQueryParams(playlist){
- //   this.id = playlist;
- //   this.router.navigate([], {preserveQueryParams: false});
- // }
    getFilters(filter,param) {
    this.router.navigate(['songs-tile/'+ this.id], { queryParams: { [filter]: param}, queryParamsHandling: 'merge' });
  }

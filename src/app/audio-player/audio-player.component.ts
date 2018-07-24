@@ -137,7 +137,7 @@ export class AudioPlayerComponent implements OnInit {
     setTimeout(()=>{ this.audio.play(); }, 500)
   }
 }
-  currentSongUrl(){
+  currentSongUrl() {
     this.data.currentSong(this.playList[this.index].url, this.isPlaying);
   }
 }
