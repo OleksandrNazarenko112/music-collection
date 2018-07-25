@@ -11,7 +11,7 @@ export class AudioPlayerComponent implements OnInit {
   duration: any;
   elapsed: any;
   playList: any;
-  index:any;
+  index:any = null;
   loading = true;
   isPlaying: boolean;
 
@@ -123,7 +123,9 @@ export class AudioPlayerComponent implements OnInit {
     }else{
        this.index++;
        this.currentSongUrl();
-      setTimeout(()=>{ this.audio.play(); }, 500)
+       if(this.isPlaying) {
+        setTimeout(()=>{ this.audio.play(); }, 500);
+       }
     }
         
     }
@@ -134,7 +136,9 @@ export class AudioPlayerComponent implements OnInit {
     } else{
     this.index--;
     this.currentSongUrl();
-    setTimeout(()=>{ this.audio.play(); }, 500)
+    if(this.isPlaying) {
+      setTimeout(()=>{ this.audio.play(); }, 500);
+    }
   }
 }
   currentSongUrl() {

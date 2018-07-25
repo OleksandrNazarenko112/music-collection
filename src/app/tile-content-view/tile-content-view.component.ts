@@ -54,20 +54,14 @@ isPlaying:boolean;
 
  public playerStart(index):void {
      this.data.currPlayList(this.sortResult, index);
-     this.currentPlayingSong(index);
+     this.currentPlayingSong();
  }
- currentPlayingSong(index) {
-       console.log('index', index);
+ currentPlayingSong() {
     this.data.nowPlaying.subscribe((url:any) => {     
-      this.currentSong = this.sortResult[index].url === url;
+      this.currentSong = url;
       });
     this.data.isPlaying.subscribe((play:any) => {  
           this.isPlaying = play;
       }); 
-    if(this.currentSong && this.isPlaying) {
-       return this.currentSong;
-    } else {
-      return false;
-    }
  }
 }
