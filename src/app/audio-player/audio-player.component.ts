@@ -8,12 +8,14 @@ import { DataService } from '../services/data-service.service';
 })
 export class AudioPlayerComponent implements OnInit {
   audio: any;
-  duration: any;
+  duration: any = null;
   elapsed: any;
   playList: any;
   index:any = null;
   loading = true;
   isPlaying: boolean;
+  showProgress;
+  audioCurrentTime: number = null;
 
   @ViewChild('audioPlayer') audioPlayerRef: ElementRef;
 
@@ -21,12 +23,11 @@ export class AudioPlayerComponent implements OnInit {
      }
    ngOnInit(): void {
      this.audio = this.audioPlayerRef.nativeElement;
-     this.audio.volume = 0.7;
+     this.audio.volume = localStorage.getItem('valume') || 0.7;
      this.playlistData(); 
      this.nextSong();
      this.loadingAudio();
   }
-
    playlistData() {
       this.data.songIndex.subscribe((index:any) => {  
         this.index = index; 
@@ -69,7 +70,8 @@ export class AudioPlayerComponent implements OnInit {
     }
 
   setVolume(volume) {
-      this.audio.volume = volume;
+      localStorage.setItem('valume', volume);
+      this.audio.volume = localStorage.getItem('valume');
        if((this.audio.muted && this.audio.volume > 0) || this.audio.volume == 0) {
             this.audio.muted = !this.audio.muted;
         }
@@ -82,6 +84,7 @@ export class AudioPlayerComponent implements OnInit {
       seconds = Math.floor(seconds % 60);
       seconds = (seconds >= 10) ? seconds : '0' + seconds;
       this.elapsed = minutes + ':' + seconds;
+      this.audioCurrentTime = this.audio.currentTime; //fix for safari
       this.culcSongDuration();
   }
 
@@ -108,7 +111,7 @@ export class AudioPlayerComponent implements OnInit {
         this.audio.volume = 0;
       } 
       if(!this.audio.muted) {
-        this.audio.volume = 0.7;
+        this.audio.volume = localStorage.getItem('valume') || 0.7;
       }
     }
 
@@ -126,9 +129,8 @@ export class AudioPlayerComponent implements OnInit {
        if(this.isPlaying) {
         setTimeout(()=>{ this.audio.play(); }, 500);
        }
-    }
-        
-    }
+    }      
+  }
 
   prevSong() {
     if(this.index==0){

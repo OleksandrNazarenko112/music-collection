@@ -17,12 +17,11 @@
         <div class="audio-controls-group">
           <div class="col-lg-11">
             <h6 *ngIf="playList">{{playList[index]?.singer}} - <span>{{playList[index]?.title}}</span></h6>
-            <div class="progress-container" >
-              <div class="progress" [style.width.%]="audio.currentTime / audio.duration * 100"></div>
-              <input type="range" min="0" [value]="audio.currentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)">
-            </div>
-            <span class="track-timer" [hidden]="audio.duration">0:00 / 0:00</span>
-            <span class="track-timer" [hidden]="!audio.duration">{{elapsed}} / {{duration}}</span>
+            <div class="progress-container">
+              <div class="progress" [style.width.%]="audioCurrentTime / audio.duration * 100"></div>
+              <input type="range" min="0" [value]="audioCurrentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)">
+            </div>    
+            <span class="track-timer">{{elapsed}} / {{duration}}</span>
           </div>
           <div class="controls align-self-center">
             <ul>
