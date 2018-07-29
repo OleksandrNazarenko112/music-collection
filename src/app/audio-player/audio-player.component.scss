@@ -239,3 +239,58 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
 }
+
+
+@media screen and (max-width: 812px) {
+    .download, 
+    .album-cover-container, 
+    .volume-group {
+      display: none;
+    }
+    .progress-container {
+      top: auto;
+      left: 0;
+      bottom: 0;
+      position:fixed;
+    }
+    .audo-player {
+      .track-progress-container {
+        h6 {
+          margin: 0;
+        }
+        .track-timer {
+            display: none;
+        }
+      }
+  }
+  .progress-container {
+    border-radius: 0;
+    height: 2px;
+    .progress {
+      border-radius: 0;
+      height: 2px;
+    }
+  }
+  input[type=range]::-webkit-slider-thumb {
+    display: none;
+  }
+  input[type=range]::-moz-range-thumb {
+   display: none;
+  }
+  input[type=range]::-ms-thumb {
+    display: none;
+  }
+}
+@media screen and (max-width: 414px) {
+    .backward,
+    .forward {
+      display: none;
+    }
+    .audo-player {
+      .track-progress-container {
+        h6 {
+          font-size: 13px;
+        }
+      }
+  }
+}

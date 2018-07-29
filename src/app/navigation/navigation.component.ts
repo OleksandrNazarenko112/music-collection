@@ -13,6 +13,7 @@ export class NavigationComponent implements OnInit {
   defaultFilters: any[] = [];
   defaultAciveFiltersList: any[] = [];
   id;
+  showNavigation: boolean;
   constructor(private _getNav: NavigationInfoService, 
               private router:Router,
               private data: DataService,

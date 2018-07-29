@@ -14,6 +14,7 @@ public sortResult: Array<any>;
 public queryParams: any;
 currentSong:any;
 isPlaying:boolean;
+marginForContentView: any = null;
 
   constructor(public getMusic: NavigationInfoService,
               private route: ActivatedRoute,
@@ -23,6 +24,12 @@ isPlaying:boolean;
 
   public ngOnInit():void {
     this.loadMusic();
+        this.data.getPlayerHeight().subscribe((response)=> {
+        this.marginForContentView = response;
+        console.log(this.marginForContentView);
+    }, error => {
+        console.log('marginForContentViewError', error);
+    })
        this.route.queryParams.subscribe(params => {   
           this.queryParams = Object.keys(params).map(val => params[val]); 
           this.songSorting();

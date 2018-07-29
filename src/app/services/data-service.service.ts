@@ -17,6 +17,7 @@ export class DataService {
   isPlaying = this.isSongPlaying.asObservable();
  // private currentSongsArray = new Subject<any>();
  private currentNestedRoute = new Subject<any>();
+ private playerHeight = new Subject<any>();
 // private currentSongUrlTest = new Subject<any>();
 
     constructor() {
@@ -38,6 +39,12 @@ export class DataService {
   }
   getCurrentNestedRoute() {
     return this.currentNestedRoute.asObservable();
+  }
+  passPlayerHeight(height: any){
+   this.playerHeight.next(height);
+  }
+  getPlayerHeight(){
+   return this.playerHeight.asObservable();
   }
 
   // getCurrentSongUrl() {

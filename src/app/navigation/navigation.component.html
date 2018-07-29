@@ -1,9 +1,17 @@
-<div class="navigation-container">
+<div class = "humburger-menu" (click)="showNavigation = !showNavigation">
+ <div id="nav-icon3" [class.open]="showNavigation">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</div>
+<div class="navigation-container" [class.show-mobile-navigaton]="showNavigation">
   <h5>Плейлисты</h5>
   <ul class="playlists-container">
     <li *ngFor="let playList of navigationInfo?.settings?.playlist">
       <a [routerLink]="['songs-tile', playList.route]" 
-         routerLinkActive="active-playlist">
+         routerLinkActive="active-playlist" (click)="showNavigation = !showNavigation">
        {{playList.name}}
       </a>
     </li>

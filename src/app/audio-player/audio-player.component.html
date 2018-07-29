@@ -1,18 +1,18 @@
-<div class="audo-player" [class.show]="playList">
+<div class="audo-player" [class.show]="playList" #audoPlayerContainer>
   <div class="container-fluid">
     <div class="row ">
-      <div class="col-lg-2 col-xs-12 controls align-self-center">
+      <div class="col-lg-2 col-sm-3 col-4 controls align-self-center">
         <ul>
           <li class="backward" (click)="prevSong()"><span [class.isDisabled]="index==0"><i class="fa fa-backward"></i></span></li>
           <li class="play-pause"><span (click)="togglePlay()"><i [className]="!isPlaying ? 'fa fa-play' : 'fa fa-pause'"></i></span></li>
           <li class="forward" (click)="skipSong()" ><span [class.isDisabled]="index+1 >= playList.length"><i class="fa fa fa-forward"></i></span></li>
         </ul>
       </div>
-      <div class="col-lg-1 col-xs-12  album-cover-container align-self-center">
+      <div class="col-lg-1 album-cover-container align-self-center">
         <img [src]=playList[index]?.albumCover [ngStyle]="{'opacity':loading ? '0.5' : '1' }">
         <span *ngIf="loading" class="loader"></span>
       </div>
-      <div class="col-lg-6 col-xs-12  track-progress-container align-self-center">
+      <div class="col-lg-6 col-sm-9 col-8 track-progress-container align-self-center">
         <audio #audioPlayer [src]=playList[index]?.url></audio>
         <div class="audio-controls-group">
           <div class="col-lg-11">
@@ -25,7 +25,7 @@
           </div>
           <div class="controls align-self-center">
             <ul>
-              <li><a [href]=playList[index]?.url download><i class="fa fa-cloud-download"></i></a></li>
+              <li class="download"><a [href]=playList[index]?.url download><i class="fa fa-cloud-download"></i></a></li>
             </ul>
           </div>
         </div>

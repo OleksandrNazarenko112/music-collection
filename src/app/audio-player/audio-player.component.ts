@@ -18,6 +18,7 @@ export class AudioPlayerComponent implements OnInit {
   audioCurrentTime: number = null;
 
   @ViewChild('audioPlayer') audioPlayerRef: ElementRef;
+  @ViewChild('audoPlayerContainer') audoPlayerContainer: ElementRef;
 
   constructor(private data: DataService) { 
      }
@@ -40,7 +41,8 @@ export class AudioPlayerComponent implements OnInit {
        });
   }
 
-    togglePlay() {                     
+    togglePlay() { 
+      this.data.passPlayerHeight(this.audoPlayerContainer.nativeElement.offsetHeight);                  
      if (this.audio.paused) {
        this.audio.play();
        this.isPlaying = true;

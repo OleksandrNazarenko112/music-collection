@@ -1,7 +1,7 @@
-<div class="container-fluid tile-content-container">
+<div class="container-fluid tile-content-container" [ngStyle]="{'margin-bottom.px': marginForContentView}">
   <div class="col-lg-12">
     <div class="row">
-      <div class="col-lg-2" *ngFor=" let song of sortResult; let i = index;">
+      <div class="col-lg-2 col-sm-3 col-6" *ngFor=" let song of sortResult; let i = index;">
         <div class="album-cover-container" [class.active-song]="sortResult[i].url == currentSong">
           <span ><img [src]="song.albumCover" alt="{{song.title}}"></span>
           <div class="overlay">
