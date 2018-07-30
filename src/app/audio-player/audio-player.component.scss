@@ -81,6 +81,7 @@ position: relative;
       display: block;
       max-width: 100%;
       margin: 0 auto;
+      object-fit: contain;
     }
   }
   .track-progress-container {
@@ -241,7 +242,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 
-@media screen and (max-width: 812px) {
+@media screen and (max-width: 991px) {
     .download, 
     .album-cover-container, 
     .volume-group {
@@ -265,10 +266,10 @@ input[type=range]:focus::-ms-fill-upper {
   }
   .progress-container {
     border-radius: 0;
-    height: 2px;
+    height: 4px;
     .progress {
       border-radius: 0;
-      height: 2px;
+      height: 4px;
     }
   }
   input[type=range]::-webkit-slider-thumb {

@@ -7,30 +7,28 @@ import { DataService } from '../services/data-service.service';
   styleUrls: ['./audio-player.component.scss']
 })
 export class AudioPlayerComponent implements OnInit {
-  audio: any;
-  duration: any = null;
-  elapsed: any;
-  playList: any;
-  index:any = null;
-  loading = true;
-  isPlaying: boolean;
-  showProgress;
-  audioCurrentTime: number = null;
+ public audio: any = null;
+ public duration: any = null;
+ public elapsed: any;
+ public playList: any;
+ public index: number = null;
+ public loading: boolean = true;
+ public isPlaying: boolean;
+ public audioCurrentTime: number = null;
 
   @ViewChild('audioPlayer') audioPlayerRef: ElementRef;
   @ViewChild('audoPlayerContainer') audoPlayerContainer: ElementRef;
 
-  constructor(private data: DataService) { 
-     }
-   ngOnInit(): void {
+  constructor(private data: DataService) {}
+  public ngOnInit(): void {
      this.audio = this.audioPlayerRef.nativeElement;
      this.audio.volume = localStorage.getItem('valume') || 0.7;
      this.playlistData(); 
      this.nextSong();
      this.loadingAudio();
   }
-   playlistData() {
-      this.data.songIndex.subscribe((index:any) => {  
+  public playlistData(): void {
+      this.data.songIndex.subscribe((index: number) => {  
         this.index = index; 
       });
       this.data.playlist.subscribe((songs:any) => {   
@@ -38,10 +36,9 @@ export class AudioPlayerComponent implements OnInit {
          if(songs) {
            setTimeout(()=>{ this.togglePlay(); }, 100)  
          }
-       });
+      });
   }
-
-    togglePlay() { 
+  public togglePlay(): void { 
       this.data.passPlayerHeight(this.audoPlayerContainer.nativeElement.offsetHeight);                  
      if (this.audio.paused) {
        this.audio.play();
@@ -54,31 +51,28 @@ export class AudioPlayerComponent implements OnInit {
       }
      this.currentSongUrl();
     }
-
-   culcSongDuration() {
+  public culcSongDuration(): void {
       let minutes, seconds;
       minutes = Math.floor(this.audio.duration / 60)
       seconds = Math.round(this.audio.duration % 60);
-      if(isNaN(this.audio.duration)) {
+      if (isNaN(this.audio.duration)) {
          this.duration = '0:00'
       } else {
       seconds = (seconds >= 10) ? seconds : '0' + seconds;
       this.duration = minutes  + ':' + seconds;
       }
     }
-
-  skipTime(time) {
+ public skipTime(time): void {
       this.audio.currentTime = time;
     }
-
-  setVolume(volume) {
+ public setVolume(volume): void {
       localStorage.setItem('valume', volume);
       this.audio.volume = localStorage.getItem('valume');
        if((this.audio.muted && this.audio.volume > 0) || this.audio.volume == 0) {
             this.audio.muted = !this.audio.muted;
         }
     }
-  formatTime() {
+ public formatTime(): void {
       this.loading = false;
       let minutes, seconds;
       seconds = Math.round(this.audio.currentTime);
@@ -89,13 +83,12 @@ export class AudioPlayerComponent implements OnInit {
       this.audioCurrentTime = this.audio.currentTime; //fix for safari
       this.culcSongDuration();
   }
-
-  currentTimeUpdate() { 
+ public currentTimeUpdate(): void { 
       this.audio.addEventListener('timeupdate', (event) => {
       this.formatTime();
         }, false);
   }
-  nextSong() { 
+ public nextSong(): void { 
       this.audio.addEventListener('ended', (event) => {
       this.index++;
       this.audio.pause();
@@ -107,7 +100,7 @@ export class AudioPlayerComponent implements OnInit {
       this.currentSongUrl();
     });
   }
-  mute() {
+ public mute(): void {
       this.audio.muted = !this.audio.muted;
       if(this.audio.muted) {
         this.audio.volume = 0;
@@ -116,16 +109,15 @@ export class AudioPlayerComponent implements OnInit {
         this.audio.volume = localStorage.getItem('valume') || 0.7;
       }
     }
-
-  loadingAudio() {
+ public loadingAudio(): void {
      this.audio.addEventListener('waiting', (event) => {
       this.loading = true; 
     })
   }
-  skipSong() {
-    if(this.index+1 >= this.playList.length){
+ public skipSong() {
+    if (this.index + 1 >= this.playList.length){
       return false;
-    }else{
+    } else {
        this.index++;
        this.currentSongUrl();
        if(this.isPlaying) {
@@ -133,19 +125,18 @@ export class AudioPlayerComponent implements OnInit {
        }
     }      
   }
-
-  prevSong() {
-    if(this.index==0){
+ public prevSong() {
+    if (this.index == 0) {
         return false;
-    } else{
+    } else {
     this.index--;
     this.currentSongUrl();
-    if(this.isPlaying) {
+    if (this.isPlaying) {
       setTimeout(()=>{ this.audio.play(); }, 500);
     }
   }
 }
-  currentSongUrl() {
+ public currentSongUrl(): void {
     this.data.currentSong(this.playList[this.index].url, this.isPlaying);
   }
 }

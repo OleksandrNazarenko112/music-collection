@@ -8,7 +8,7 @@ import {Observable, Subject} from 'rxjs';
 export class DataService {
 
   private currentSongsArray = new BehaviorSubject('');
-  private currentSongIndex = new BehaviorSubject('');
+  private currentSongIndex = new BehaviorSubject(null);
   private currentSongUrl = new BehaviorSubject('');
   private isSongPlaying = new BehaviorSubject('')
   playlist = this.currentSongsArray.asObservable();
@@ -23,7 +23,7 @@ export class DataService {
     constructor() {
     }
 
-  currPlayList(songs: any, index:any) {
+  currPlayList(songs: any, index: number) {
      this.currentSongsArray.next(songs);
      this.currentSongIndex.next(index);
   }

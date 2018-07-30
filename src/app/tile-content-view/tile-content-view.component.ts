@@ -26,7 +26,6 @@ marginForContentView: any = null;
     this.loadMusic();
         this.data.getPlayerHeight().subscribe((response)=> {
         this.marginForContentView = response;
-        console.log(this.marginForContentView);
     }, error => {
         console.log('marginForContentViewError', error);
     })

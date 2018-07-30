@@ -111,9 +111,9 @@
 
   #nav-icon3 {
   width: 35px;
-  height: 45px;
+  height: 35px;
+  margin: 0 auto;
   position: relative;
-  margin: 0;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -149,11 +149,11 @@
 }
 
 #nav-icon3 span:nth-child(2),#nav-icon3 span:nth-child(3) {
-  top: 18px;
+  top: 16px;
 }
 
 #nav-icon3 span:nth-child(4) {
-  top: 31px;
+  top: 27px;
 }
 
 #nav-icon3.open span:nth-child(1) {
@@ -190,6 +190,13 @@
     z-index: 10;
     top: 18px;
     right: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    border: 1px solid #eee;
+    width: 47px;
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(148,148,148,1);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(148,148,148,1);
+    box-shadow: 0px 0px 1px 0px rgba(148,148,148,1);
     }
   .navigation-container {
     display: none;
