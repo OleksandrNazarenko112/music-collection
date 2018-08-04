@@ -24,6 +24,12 @@
       background: rgba(173, 205, 215, 0.3);
       color: #fff;
       opacity: 0;
+      .vertical-align {
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: relative;
       span {
         cursor: pointer;
         display: inline-block;
@@ -32,12 +38,14 @@
         border: 1px solid #fff;
         padding: 8px 21px;
         border-radius: 50px;
-        position: relative;
-        top: 50%;
-        -ms-transform: translateY(-50%);
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
       }
+      a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        margin-top: 20px;
+      }
+    }
     }
     &:hover {
       .overlay {
@@ -57,7 +65,7 @@
         filter: blur(2px);
       }
     }
-  }
+   }
   .song-title {
     margin: 10px 0;
     h5 {

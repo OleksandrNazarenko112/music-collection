@@ -37,15 +37,14 @@ marginForContentView: any = null;
          this.data.passCurrentNestedRoute(params);
     });
 
-  }
-  
+  }  
   public loadMusic():void {
     this.getMusic.getMusic().subscribe(response => {
       this.songsList =  response.randomPlaylist.songs;
+      console.log(this.songsList);
       this.songSorting();
     });
   };
-
  public songSorting():void {
    this.sortResult = [];
      this.songsList.forEach((song) => {
@@ -57,7 +56,6 @@ marginForContentView: any = null;
       }
     });
   }
-
  public playerStart(index):void {
      this.data.currPlayList(this.sortResult, index);
      this.currentPlayingSong();
@@ -69,5 +67,8 @@ marginForContentView: any = null;
     this.data.isPlaying.subscribe((play:any) => {  
           this.isPlaying = play;
       }); 
+ }
+ test(data) {
+console.log(data.lyrics.ru)
  }
 }

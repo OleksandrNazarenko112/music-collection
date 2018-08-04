@@ -12,6 +12,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TileContentViewComponent } from './tile-content-view/tile-content-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LyricsComponent } from './lyrics/lyrics.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -23,7 +24,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     AudioPlayerComponent,
     NavigationComponent,
-    TileContentViewComponent
+    TileContentViewComponent,
+    LyricsComponent
   ],
   imports: [
     BrowserModule,

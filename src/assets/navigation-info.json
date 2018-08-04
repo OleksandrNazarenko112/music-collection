@@ -13,7 +13,9 @@
       "playlist": [
         { "name":"Случайный плейлист", 
           "route": "random_playlist"
-        }
+        },
+        {"name":"Хиты 90-х",
+        "route":"hits-of-90"}
       ],
       "filters": [
         {
