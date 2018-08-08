@@ -13,14 +13,14 @@ export class NavigationInfoService {
     constructor(private http: Http) {
     }
 
-    public getJSON(): Observable<any> {
+    public getUI(): Observable<any> {
       return this.http.get('./assets/navigation-info.json').pipe(map((response: any) => {
         return response.json();
     }));
 
      }
-    public getMusic(): Observable<any> {
-      return this.http.get('./assets/random-play-list.json').pipe(map((response: any) => {
+    public getMusic(playlist): Observable<any> {
+      return this.http.get('./assets/'+ playlist +'.json').pipe(map((response: any) => {
         return response.json();
     }));
 

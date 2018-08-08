@@ -1,5 +1,5 @@
 {
-  "randomPlaylist": {
+  "playlist": {
     "songs" : [
       {"id": 0,
       "title": "Way down we go",
@@ -11,7 +11,7 @@
         "Средний"
       ],
       "lyrics": 
-        { "original":"dfd",
+        { "original":["dfd"],
           "ru": "dfdf"}
       },
       {"id": 1,

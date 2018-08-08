@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NavigationInfoService } from '../services/navigation-info.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../services/data-service.service';
+
 
 @Component({
   selector: 'app-tile-content-view',
@@ -14,7 +15,9 @@ public sortResult: Array<any>;
 public queryParams: any;
 currentSong:any;
 isPlaying:boolean;
+loaded: boolean;
 marginForContentView: any = null;
+
 
   constructor(public getMusic: NavigationInfoService,
               private route: ActivatedRoute,
@@ -23,7 +26,7 @@ marginForContentView: any = null;
               ) { }
 
   public ngOnInit():void {
-    this.loadMusic();
+   this.loadMusic();
         this.data.getPlayerHeight().subscribe((response)=> {
         this.marginForContentView = response;
     }, error => {
@@ -39,12 +42,12 @@ marginForContentView: any = null;
 
   }  
   public loadMusic():void {
-    this.getMusic.getMusic().subscribe(response => {
-      this.songsList =  response.randomPlaylist.songs;
-      console.log(this.songsList);
+     this.data.getPlayList().subscribe((response) => {
+      this.songsList = response.playlist.songs;
       this.songSorting();
-    });
-  };
+      this.loaded = true;
+     })
+   }
  public songSorting():void {
    this.sortResult = [];
      this.songsList.forEach((song) => {
@@ -67,8 +70,5 @@ marginForContentView: any = null;
     this.data.isPlaying.subscribe((play:any) => {  
           this.isPlaying = play;
       }); 
- }
- test(data) {
-console.log(data.lyrics.ru)
  }
 }

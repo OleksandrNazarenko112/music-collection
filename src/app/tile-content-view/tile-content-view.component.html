@@ -1,5 +1,5 @@
-<router-outlet></router-outlet>
-<div class="container-fluid tile-content-container" [ngStyle]="{'margin-bottom.px': marginForContentView}" *ngIf="route.children.length === 0">
+ <router-outlet></router-outlet>
+<div class="container-fluid tile-content-container" [ngStyle]="{'margin-bottom.px': marginForContentView}" *ngIf="route.children.length === 0 && loaded">
   <div class="col-lg-12">
     <div class="row">
       <div class="col-lg-2 col-sm-3 col-6" *ngFor=" let song of sortResult; let i = index;">
@@ -8,7 +8,7 @@
           <div class="overlay">
             <div class="vertical-align">
             <span (click)=playerStart(i)><i [ngClass]="sortResult[i].url == currentSong && isPlaying ? 'fa fa-pause' : 'fa fa-play'"></i></span>
-            <a [routerLink]="['lyrics', song.url]" *ngIf="song.lyrics" (click)="test(song)">перевод песни</a>
+            <a [routerLink]="['lyrics', song.url]" *ngIf="song.lyrics">перевод песни</a>
           </div>
           </div>
         </div>

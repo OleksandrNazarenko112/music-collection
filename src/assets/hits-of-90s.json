@@ -1,0 +1,45 @@
+{
+  "playlist": {
+    "songs" : [
+      {"id": 0,
+      "title": "Gangsters paradise",
+      "singer": "Coolio",
+      "url": "https://fex.net/load/759433697826/640219899",
+      "albumCover": "https://fex.net/show/759433697826/640219911?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+        "Средний"
+      ],
+      "lyrics": 
+        { "original":["As I walk through the valley of the shadow of death",
+          "I take a look at my life and realize there's nothin' left",
+          "‘Cause I've been blastin' and laughin' so long",
+          "That even my momma thinks that my mind is gone",
+          "But I ain't never crossed a man that didn't deserve it",
+          "Me be treated like a punk, you know that's unheard of",
+          "You better watch how you talkin' and where you walkin'",
+          "Or you and your homies might be lined in chalk",
+          "I really hate to trip, but I gotta loc",
+          "As they croak, I see myself in the pistol smoke",
+          "Fool, I'm the kinda G that little homies wanna be like",
+          "On my knees in the night, sayin' prayers in the streetlight",
+          "chorus",
+          "Keep spendin' most our lives"],
+          "ru": "dfdf"}
+      },
+      {"id": 1,
+      "title": "Fire",
+      "singer": "Scooter",
+      "url": "https://fex.net/load/759433697826/640219908",
+      "albumCover": "https://fex.net/show/759433697826/640219912?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+        "Быстрый"
+      ],
+      "lyrics": 
+        { "original":["dfd"],
+          "ru": "dfdf"}
+      }
+    ]
+  }
+}

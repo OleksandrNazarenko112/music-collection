@@ -1,6 +1,9 @@
 .humburger-menu {
   display: none;
 }
+.custom-control-input:focus~.custom-control-label::before {
+  box-shadow: none;
+}
 .navigation-container {
   min-height: 100vh;
   overflow-y: auto;
@@ -18,11 +21,13 @@
       border-radius: 4px;
       color: #fff;
       text-decoration: none;
+      &:hover{
+         background-color: #76abbd;
         }
+      }
      &:hover  {
-      background-color: #76abbd;
+      background-color: #eee;
       border-radius: 4px;
-      color: #fff;
       text-decoration: none;
       }
       }

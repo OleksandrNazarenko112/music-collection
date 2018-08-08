@@ -5,7 +5,7 @@ import { TileContentViewComponent } from './tile-content-view/tile-content-view.
 import { LyricsComponent } from './lyrics/lyrics.component';
 const appRoutes: Routes = [
     { path: 'songs-tile/:playList', component: TileContentViewComponent, children: [
-    { path: 'lyrics/:song', component: LyricsComponent }
+    { path: 'lyrics/:url', component: LyricsComponent }
   ] } 
 ];
 

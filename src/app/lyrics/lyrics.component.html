@@ -1,3 +1,11 @@
 <p>
-  lyrics works!
+  lyrics
 </p>
+
+<div *ngFor="let item of result; let i = index">
+  <p>текст песни: {{item.title}}</p>
+  <div *ngFor="let line of result[i]?.lyrics?.original">
+    <div [class.chorus]="line == 'chorus'">{{line}}</div>
+    </div>
+</div>
+
