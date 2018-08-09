@@ -1,3 +1,103 @@
-.chorus {
+.space {
   visibility: hidden;
+  margin-bottom: 0;
 }
+.lyrics-content-container {
+  padding: 20px 0;
+}
+.current-line {
+  background-color: #76abbd;
+  color: #fff;
+}
+
+.original-text-container {
+  padding: 10px;
+  p {
+    padding: 5px;
+    cursor: pointer;
+    &:first-child {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+}
+.translation-text-container {
+  padding: 10px;
+  p {
+    padding: 5px;
+    cursor: pointer;
+    &:first-child {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+}
+
+
+
+ .album-cover-container {
+    position: relative;
+    margin: .5%;
+    span {
+      img {
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        transition: .3s all;
+        width: 100%;
+      }
+    }
+    .overlay {
+      text-align: center;
+      transition: .3s all;
+      border-radius: 4px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background: rgba(173, 205, 215, 0.3);
+      color: #fff;
+      opacity: 0;
+      .vertical-align {
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        position: relative;
+      span {
+        cursor: pointer;
+        display: inline-block;
+        color: #fff;
+        font-size: 35px;
+        border: 1px solid #fff;
+        padding: 8px 21px;
+        border-radius: 50px;
+      }
+      a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        margin-top: 20px;
+      }
+    }
+    }
+    &:hover {
+      .overlay {
+        opacity: 1;
+      }
+      img {
+        -webkit-filter: blur(2px);
+        filter: blur(2px);
+      }
+    }
+    &.active-song {
+      .overlay {
+        opacity: 1;
+      }
+      img {
+        -webkit-filter: blur(2px);
+        filter: blur(2px);
+      }
+    }
+   }

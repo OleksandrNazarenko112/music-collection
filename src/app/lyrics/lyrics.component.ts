@@ -12,6 +12,7 @@ export class LyricsComponent implements OnInit {
 // public songsList: any;
 public currentSongUrl: any;
 result: any;
+public currentLine:number;
   constructor(private data: DataService,
               private route: ActivatedRoute,
               private router: Router,
@@ -42,5 +43,8 @@ result: any;
     public getSongInfo(songsList) {
      this.result = songsList.filter(songData => songData.url === this.currentSongUrl);
   }
+  getCurrentLineIndex(index) {
+    this.currentLine = index;
+}
 
 }
