@@ -1,5 +1,5 @@
 {
-  "randomPlaylist": {
+  "playlist": {
     "songs" : [
       {"id": 0,
       "title": "Way down we go",
@@ -9,7 +9,10 @@
       "filters" : [ 
         "Мужской", 
         "Средний"
-      ]
+      ],
+      "lyrics": 
+        { "original":["dfd"],
+          "ru": ["dfdf"]}
       },
       {"id": 1,
       "title": "West Coast",
@@ -48,7 +51,7 @@
       "albumCover": "https://fex.net/show/282168001195/607587920?1600w,0",
       "filters" : [ 
         "Мужской", 
-       "Медленный"
+       "Средний"
       ]
       },
       {"id": 5,
@@ -139,6 +142,46 @@
       "filters" : [ 
        "Женский",
        "Быcтрый"
+      ]
+      },
+      {"id": 14,
+      "title": "Come as you are",
+      "singer": "Prep School",
+      "url": "https://fex.net/load/282168001195/628568418",
+      "albumCover": "https://fex.net/show/282168001195/628576705?1600w,0",
+      "filters" : [ 
+       "Женский",
+       "Быcтрый"
+      ]
+      },
+      {"id": 15,
+      "title": "You Know I’m No Good",
+      "singer": "Amy Winehouse",
+      "url": "https://fex.net/load/282168001195/628915384",
+      "albumCover": "https://fex.net/show/282168001195/628921328?1600w,0",
+      "filters" : [ 
+       "Женский",
+       "Средний"
+      ]
+      },
+      {"id": 16,
+      "title": "Shape of you",
+      "singer": "Ed Sheeran",
+      "url": "https://fex.net/load/282168001195/628966783",
+      "albumCover": "https://fex.net/show/282168001195/628959103?1600w,0",
+      "filters" : [ 
+       "Мужской",
+       "Средний"
+      ]
+      },
+      {"id": 17,
+      "title": "Behind The Mask",
+      "singer": "Michael Jackson",
+      "url": "https://fex.net/load/282168001195/652860821",
+      "albumCover": "https://fex.net/show/282168001195/652859713?1600w,0",
+      "filters" : [ 
+       "Мужской",
+       "Средний"
       ]
       }
     ]
