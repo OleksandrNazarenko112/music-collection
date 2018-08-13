@@ -20,7 +20,7 @@ marginForContentView: any = null;
 
 
   constructor(public getMusic: NavigationInfoService,
-              private route: ActivatedRoute,
+              public route: ActivatedRoute,
               private router: Router,
               private data: DataService
               ) { }

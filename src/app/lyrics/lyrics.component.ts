@@ -10,16 +10,16 @@ import { NavigationInfoService } from '../services/navigation-info.service';
 })
 export class LyricsComponent implements OnInit {
 // public songsList: any;
-public currentSongUrl: any;
-result: any;
-public currentLine:number;
+public currentSongUrl: string;
+public result: Array<any> = [];
+public currentLine: number;
   constructor(private data: DataService,
               private route: ActivatedRoute,
               private router: Router,
               private getPlaylist: NavigationInfoService
               ) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
        this.currentSongUrl = this.route.snapshot.params['url'];  
        this.route.parent.params.subscribe(params => {
              this.getMusic(params.playList);
@@ -40,11 +40,10 @@ public currentLine:number;
       this.getSongInfo(response.playlist.songs);
     });
   };
-    public getSongInfo(songsList) {
+   public getSongInfo(songsList):void {
      this.result = songsList.filter(songData => songData.url === this.currentSongUrl);
   }
-  getCurrentLineIndex(index) {
+   public getCurrentLineIndex(index):void {
     this.currentLine = index;
-}
-
+  }
 }

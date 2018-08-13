@@ -110,7 +110,7 @@
       "url": "https://fex.net/load/282168001195/607587644",
       "albumCover": "https://fex.net/show/282168001195/607587934?1600w,0",
       "filters" : [ 
-       "Женский",
+       "Дуэт",
        "Быcтрый"
       ]
       },
@@ -169,6 +169,16 @@
       "singer": "Ed Sheeran",
       "url": "https://fex.net/load/282168001195/628966783",
       "albumCover": "https://fex.net/show/282168001195/628959103?1600w,0",
+      "filters" : [ 
+       "Мужской",
+       "Средний"
+      ]
+      },
+      {"id": 17,
+      "title": "Behind The Mask",
+      "singer": "Michael Jackson",
+      "url": "https://fex.net/load/282168001195/652860821",
+      "albumCover": "https://fex.net/show/282168001195/652859713?1600w,0",
       "filters" : [ 
        "Мужской",
        "Средний"

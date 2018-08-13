@@ -26,10 +26,8 @@ export class NavigationComponent implements OnInit {
           this.defaultAciveFiltersList = Object.keys(params);
      });
      this.data.getCurrentNestedRoute().subscribe(params =>{
-       this.id =  params.playList;
-
-      this.getMusic(params.playList);
-
+      this.id =  params.playList;
+        this.getMusic(params.playList);
      });
   }
    public getMusic(playlist):void {
@@ -43,8 +41,8 @@ export class NavigationComponent implements OnInit {
           this.navigationInfo = response;
     });
   }
-   getFilters(filter,param) {
-     this.router.navigate(['songs-tile/'+ this.id], { queryParams: { [filter]: param}, queryParamsHandling: 'merge' });
+   getFilters(filter,param, page?) {
+     this.router.navigate(['songs-tile/'+ this.id], { queryParams: { [filter]: param }, queryParamsHandling: 'merge' });
  }
 }
 
