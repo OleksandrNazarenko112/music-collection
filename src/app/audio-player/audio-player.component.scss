@@ -86,10 +86,13 @@ position: relative;
   }
   .track-progress-container {
 
-    h6 {
+    .title {
       margin: 0 0 10px 20px;
+      .singer-name {
+        color: #000;
+      }
       span {
-
+        font-weight: 500;
         color: #999;
       }
     }
@@ -244,7 +247,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 @media screen and (max-width: 991px) {
     .download, 
-    .album-cover-container, 
+ //   .album-cover-container, 
     .volume-group {
       display: none;
     }
@@ -256,7 +259,7 @@ input[type=range]:focus::-ms-fill-upper {
     }
     .audo-player {
       .track-progress-container {
-        h6 {
+        .title {
           margin: 0;
         }
         .track-timer {
@@ -284,12 +287,13 @@ input[type=range]:focus::-ms-fill-upper {
 }
 @media screen and (max-width: 414px) {
     .backward,
+    .singer-name,
     .forward {
       display: none;
     }
     .audo-player {
       .track-progress-container {
-        h6 {
+        .title {
           font-size: 13px;
         }
       }

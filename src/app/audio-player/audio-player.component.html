@@ -1,22 +1,25 @@
 <div class="audo-player" [class.show]="playList" #audoPlayerContainer>
   <div class="container-fluid">
     <div class="row ">
-      <div class="col-lg-2 col-sm-3 col-4 controls align-self-center">
+      <div class="col-lg-2 col-sm-3 controls align-self-center col-4 order-4 order-lg-1">
         <ul>
           <li class="backward" (click)="prevSong()"><span [class.isDisabled]="index==0"><i class="fa fa-backward"></i></span></li>
           <li class="play-pause"><span (click)="togglePlay()"><i [className]="!isPlaying ? 'fa fa-play' : 'fa fa-pause'"></i></span></li>
           <li class="forward" (click)="skipSong()" ><span [class.isDisabled]="index+1 >= playList.length"><i class="fa fa fa-forward"></i></span></li>
         </ul>
       </div>
-      <div class="col-lg-1 album-cover-container align-self-center">
+      <div class="col-lg-1 album-cover-container align-self-center col-3 order-1">
         <img [src]=playList[index]?.albumCover [ngStyle]="{'opacity':loading ? '0.5' : '1' }">
         <span *ngIf="loading" class="loader"></span>
       </div>
-      <div class="col-lg-6 col-sm-9 col-8 track-progress-container align-self-center">
+      <div class="col-lg-6 col-sm-5 order-2 col-5 track-progress-container align-self-center">
         <audio #audioPlayer [src]=playList[index]?.url></audio>
         <div class="audio-controls-group">
-          <div class="col-lg-11">
-            <h6 *ngIf="playList">{{playList[index]?.singer}} - <span>{{playList[index]?.title}}</span></h6>
+          <div class="col-lg-11 pl-0 pr-0 pr-lg-3 pl-lg-3">
+            <div class="title" *ngIf="playList">
+              <span class="singer-name">{{playList[index]?.singer}} - </span> 
+              <span class="song-title">{{playList[index]?.title}}</span>
+            </div>
             <div class="progress-container">
               <div class="progress" [style.width.%]="audioCurrentTime / audio.duration * 100"></div>
               <input type="range" min="0" [value]="audioCurrentTime" [max]="audio.duration" step="1" #time (input)="skipTime(time.value)">
@@ -30,14 +33,14 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-xs-12  volume-container align-self-center">
+      <div class="col-lg-3 order-lg-4 volume-container align-self-center">
         <div class="audio-controls-group volume-group">
           <div class="controls col-lg-1 align-self-center">
             <ul>
               <li><span (click)="mute()"><i class="fa fa-volume-up"  [className]="audio.volume > 0 ? 'fa fa-volume-up' : 'fa fa-volume-off'"></i></span></li>
             </ul>
           </div>
-          <div class="col-lg-7 col-xs-12 volume align-self-center">
+          <div class="col-lg-7 volume align-self-center">
             <div class="progress-container" >
               <div class="progress"[style.width.%]="audio.volume * 100"></div>
               <input id="volume" type="range" min="0" [value]="audio.volume" max="1" step="0.01" #volume (input)="setVolume(volume.value)" >
