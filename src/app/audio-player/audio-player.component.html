@@ -1,7 +1,7 @@
 <div class="audo-player" [class.show]="playList" #audoPlayerContainer>
   <div class="container-fluid">
     <div class="row ">
-      <div class="col-lg-2 col-sm-3 controls align-self-center col-4 order-4 order-lg-1">
+      <div class="col-lg-2 col-sm-4 controls align-self-center col-4 order-4 order-lg-1">
         <ul>
           <li class="backward" (click)="prevSong()"><span [class.isDisabled]="index==0"><i class="fa fa-backward"></i></span></li>
           <li class="play-pause"><span (click)="togglePlay()"><i [className]="!isPlaying ? 'fa fa-play' : 'fa fa-pause'"></i></span></li>

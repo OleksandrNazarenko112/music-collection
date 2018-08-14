@@ -27,13 +27,14 @@ marginForContentView: any = null;
 
   public ngOnInit():void {
    this.loadMusic();
-        this.data.getPlayerHeight().subscribe((response)=> {
+    this.data.getPlayerHeight().subscribe((response)=> {
         this.marginForContentView = response;
     }, error => {
         console.log('marginForContentViewError', error);
     })
        this.route.queryParams.subscribe(params => {   
           this.queryParams = Object.keys(params).map(val => params[val]); 
+          console.log(this.queryParams);
           this.songSorting();
      });
      this.route.params.subscribe(params => {

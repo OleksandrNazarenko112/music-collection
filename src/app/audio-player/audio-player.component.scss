@@ -76,12 +76,15 @@
   .album-cover-container {
 position: relative;
     img {
-      height: 60px;
+  //    height: 60px;
       width: 60px;
       display: block;
       max-width: 100%;
       margin: 0 auto;
       object-fit: contain;
+      -webkit-box-shadow: 1px 1px 5px 0px rgba(158,158,158,1);
+      -moz-box-shadow: 1px 1px 5px 0px rgba(158,158,158,1);
+      box-shadow: 1px 1px 5px 0px rgba(158,158,158,1);
     }
   }
   .track-progress-container {
@@ -247,10 +250,10 @@ input[type=range]:focus::-ms-fill-upper {
 
 @media screen and (max-width: 991px) {
     .download, 
- //   .album-cover-container, 
     .volume-group {
       display: none;
     }
+
     .progress-container {
       top: auto;
       left: 0;
@@ -258,6 +261,13 @@ input[type=range]:focus::-ms-fill-upper {
       position:fixed;
     }
     .audo-player {
+       background-color: #fff;
+       box-shadow: none;
+       border-top: 1px solid #eee;
+        .album-cover-container {
+          img {
+       }
+      }
       .track-progress-container {
         .title {
           margin: 0;

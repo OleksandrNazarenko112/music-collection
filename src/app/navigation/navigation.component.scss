@@ -205,6 +205,17 @@
     }
   .navigation-container {
     display: none;
+      div {
+        &:last-of-type {
+          ul {
+            li {
+              &:last-child {
+                margin-bottom: 50px;
+              }
+            }
+          }
+        }
+      }
   }
   .show-mobile-navigaton {
     display: block;

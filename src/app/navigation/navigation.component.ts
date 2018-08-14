@@ -15,25 +15,35 @@ export class NavigationComponent implements OnInit {
   id;
   songsList: any = null;
   showNavigation: boolean;
+  marginForNavigation: null;
+
   constructor(private getPlaylist: NavigationInfoService, 
               private router:Router,
               private data: DataService,
               private route: ActivatedRoute) { }
+
   ngOnInit() {
     this.getNavigation();
+    this.data.getPlayerHeight().subscribe((response)=> {
+        this.marginForNavigation = response;
+    }, error => {
+        console.log('marginForContentViewError', error);
+    })
       this.route.queryParams.subscribe(params => {   
           this.defaultFilters = Object.keys(params).map(val => params[val]); 
           this.defaultAciveFiltersList = Object.keys(params);
      });
-     this.data.getCurrentNestedRoute().subscribe(params =>{
+     this.data.getCurrentNestedRoute().subscribe(params => {
       this.id =  params.playList;
         this.getMusic(params.playList);
      });
   }
    public getMusic(playlist):void {
     this.getPlaylist.getMusic(playlist).subscribe(response => {
-      this.songsList =  response.playlist.songs;
+      this.songsList = response.playlist.songs;
          this.data.passPlaylist(response);
+    }, error => {
+        this.router.navigate(['not-found']);
     });
   };
   getNavigation() {
@@ -45,4 +55,3 @@ export class NavigationComponent implements OnInit {
      this.router.navigate(['songs-tile/'+ this.id], { queryParams: { [filter]: param }, queryParamsHandling: 'merge' });
  }
 }
-

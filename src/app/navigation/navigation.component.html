@@ -6,7 +6,7 @@
   <span></span>
 </div>
 </div>
-<div class="navigation-container" [class.show-mobile-navigaton]="showNavigation">
+<div class="navigation-container" [class.show-mobile-navigaton]="showNavigation" [ngStyle]="{'margin-bottom.px': marginForNavigation}">
   <h5>Плейлисты</h5>
   <ul class="playlists-container">
     <li *ngFor="let playList of navigationInfo?.settings?.playlist">
