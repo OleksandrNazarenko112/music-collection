@@ -12,7 +12,7 @@ import { DataService } from '../services/data-service.service';
 export class TileContentViewComponent implements OnInit {
 public songsList: any[] = [];
 public sortResult: Array<any>;
-public queryParams: any;
+public queryParamsArray: Array<any>;
 currentSong:any;
 isPlaying:boolean;
 loaded: boolean;
@@ -33,8 +33,7 @@ marginForContentView: any = null;
         console.log('marginForContentViewError', error);
     })
        this.route.queryParams.subscribe(params => {   
-          this.queryParams = Object.keys(params).map(val => params[val]); 
-          console.log(this.queryParams);
+          this.queryParamsArray = Object.keys(params).map(val => params[val]); 
           this.songSorting();
      });
      this.route.params.subscribe(params => {
@@ -45,19 +44,20 @@ marginForContentView: any = null;
   public loadMusic():void {
      this.data.getPlayList().subscribe((response) => {
       this.songsList = response.playlist.songs;
+      console.log(response);
       this.songSorting();
-      this.loaded = true;
      })
    }
  public songSorting():void {
    this.sortResult = [];
      this.songsList.forEach((song) => {
-        let success = this.queryParams.every((val) => {
+        let success = this.queryParamsArray.every((val) => {
           return song.filters.indexOf(val) != -1;
       });
      if(success) {
         this.sortResult.push(song);
       }
+      this.loaded = true;
     });
   }
  public playerStart(index):void {

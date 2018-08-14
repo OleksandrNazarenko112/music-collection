@@ -76,7 +76,8 @@
   .album-cover-container {
 position: relative;
     img {
-  //    height: 60px;
+       padding: 2px;
+      height: 60px;
       width: 60px;
       display: block;
       max-width: 100%;
@@ -266,6 +267,7 @@ input[type=range]:focus::-ms-fill-upper {
        border-top: 1px solid #eee;
         .album-cover-container {
           img {
+          
        }
       }
       .track-progress-container {
