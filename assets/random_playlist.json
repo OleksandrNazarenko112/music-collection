@@ -61,7 +61,7 @@
       "albumCover": "https://fex.net/show/282168001195/607587922?1600w,0",
       "filters" : [ 
        "Женский", 
-       "Быстрый" 
+       "Дуэт" 
       ]
       },
       {"id": 6,
@@ -179,6 +179,26 @@
       "singer": "Michael Jackson",
       "url": "https://fex.net/load/282168001195/652860821",
       "albumCover": "https://fex.net/show/282168001195/652859713?1600w,0",
+      "filters" : [ 
+       "Мужской",
+       "Средний"
+      ]
+      },
+      {"id": 18,
+      "title": "Dernière Danse",
+      "singer": "Indila",
+      "url": "https://fex.net/load/282168001195/663909212",
+      "albumCover": "https://fex.net/show/282168001195/663915836?1600w,0",
+      "filters" : [ 
+       "Женский",
+       "Средний"
+      ]
+      },
+      {"id": 19,
+      "title": "Counting stars",
+      "singer": "One republic",
+      "url": "https://fex.net/load/282168001195/663909386",
+      "albumCover": "https://fex.net/show/282168001195/663915840?1600w,0",
       "filters" : [ 
        "Мужской",
        "Средний"
