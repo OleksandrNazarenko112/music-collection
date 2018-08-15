@@ -33,6 +33,7 @@ export class AudioPlayerComponent implements OnInit {
       });
       this.data.playlist.subscribe((songs:any) => {   
          this.playList = songs; 
+console.log('песни в плеере', songs);
          if(songs) {
            setTimeout(()=>{ this.togglePlay(); }, 100)  
          }

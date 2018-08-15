@@ -17,6 +17,9 @@ currentSong:any;
 isPlaying:boolean;
 loaded: boolean;
 marginForContentView: any = null;
+pagesArray: Array<number> = [];
+itemsOnPage: number = 5;
+currentPage: number = null;
 
 
   constructor(public getMusic: NavigationInfoService,
@@ -32,8 +35,15 @@ marginForContentView: any = null;
     }, error => {
         console.log('marginForContentViewError', error);
     })
-       this.route.queryParams.subscribe(params => {   
-          this.queryParamsArray = Object.keys(params).map(val => params[val]); 
+    this.route.queryParams.subscribe(params => { 
+    this.currentPage = params.page;
+      const filterParamsArray = Object.keys(params).reduce((object, key) => {
+       if (key !== 'page') {
+          object[key] = params[key]
+         }
+    return object
+    }, {});
+          this.queryParamsArray = Object.keys(filterParamsArray).map(val => filterParamsArray[val]); 
           this.songSorting();
      });
      this.route.params.subscribe(params => {
@@ -44,7 +54,6 @@ marginForContentView: any = null;
   public loadMusic():void {
      this.data.getPlayList().subscribe((response) => {
       this.songsList = response.playlist.songs;
-      console.log(response);
       this.songSorting();
      })
    }
@@ -56,15 +65,35 @@ marginForContentView: any = null;
       });
      if(success) {
         this.sortResult.push(song);
+        console.log('sort res', this.sortResult);
       }
-      this.loaded = true;
+       this.loaded = true;
     });
+
+       let totalLeftItemsArray = [];
+       let itemsOnPageArray = [];
+       for(let i = this.itemsOnPage*(this.currentPage - 1); i < this.sortResult.length; i++) {
+            totalLeftItemsArray.push(this.sortResult[i]);
+       }
+       for (let k = 0; k < this.itemsOnPage && k < totalLeftItemsArray.length; k++) {
+           itemsOnPageArray.push(totalLeftItemsArray[k]);
+       }
+       console.log('page sort', totalLeftItemsArray);
+       console.log('show_items', itemsOnPageArray);
+   this.getPageQuantity();
   }
  public playerStart(index):void {
      this.data.currPlayList(this.sortResult, index);
      this.currentPlayingSong();
  }
- currentPlayingSong() {
+  getPageQuantity() {
+      this.pagesArray = [];
+      const pageQuantity = Math.ceil(this.sortResult.length / this.itemsOnPage);
+     for (let i = 0; i < pageQuantity; i++) {
+        this.pagesArray.push(i);
+     }
+ }
+  currentPlayingSong() {
     this.data.nowPlaying.subscribe((url:any) => {     
       this.currentSong = url;
       });

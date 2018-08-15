@@ -7,7 +7,7 @@
           <span ><img [src]="song.albumCover" alt="{{song.title}}"></span>
           <div class="overlay">
             <div class="vertical-align">
-            <span (click)=playerStart(i)><i [ngClass]="sortResult[i].url == currentSong && isPlaying ? 'fa fa-pause' : 'fa fa-play'"></i></span>
+            <span (click)=playerStart(i)><i [ngClass]="sortResult[i]?.url == currentSong && isPlaying ? 'fa fa-pause' : 'fa fa-play'"></i></span>
             <a [routerLink]="['lyrics', song.url]" *ngIf="song.lyrics">перевод песни</a>
           </div>
           </div>
@@ -20,4 +20,9 @@
     </div>
   </div>
   <h1 *ngIf="!sortResult.length">Ничего нет</h1>
+  <ul class="pagination pagination-sm" *ngIf="pagesArray.length > 1">
+    <li class="page-item"><a class="page-link">Previous</a></li>
+    <li class="page-item" *ngFor="let page of pagesArray"><a [routerLink]="['.']" [queryParams]="{ page: page + 1 }" queryParamsHandling="merge" class="page-link" >{{page + 1}}</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>
 </div>

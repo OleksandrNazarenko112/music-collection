@@ -51,7 +51,7 @@ export class NavigationComponent implements OnInit {
           this.navigationInfo = response;
     });
   }
-   getFilters(filter,param, page?) {
-     this.router.navigate(['songs-tile/'+ this.id], { queryParams: { [filter]: param }, queryParamsHandling: 'merge' });
+   getFilters(filter,param) {
+     this.router.navigate(['songs-tile/'+ this.id], { queryParams: {[filter]: param }, queryParamsHandling: 'merge' });
  }
 }
