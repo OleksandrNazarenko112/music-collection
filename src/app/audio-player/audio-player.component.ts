@@ -10,7 +10,7 @@ export class AudioPlayerComponent implements OnInit {
  public audio: any = null;
  public duration: any = null;
  public elapsed: any;
- public playList: any;
+ public playList: Array<any> = [];
  public index: number = null;
  public loading: boolean = true;
  public isPlaying: boolean;
@@ -31,9 +31,8 @@ export class AudioPlayerComponent implements OnInit {
       this.data.songIndex.subscribe((index: number) => {  
         this.index = index; 
       });
-      this.data.playlist.subscribe((songs:any) => {   
+      this.data.playlist.subscribe((songs: any) => {   
          this.playList = songs; 
-console.log('песни в плеере', songs);
          if(songs) {
            setTimeout(()=>{ this.togglePlay(); }, 100)  
          }

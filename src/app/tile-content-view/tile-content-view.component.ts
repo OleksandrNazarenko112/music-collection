@@ -18,9 +18,10 @@ isPlaying:boolean;
 loaded: boolean;
 marginForContentView: any = null;
 pagesArray: Array<number> = [];
-itemsOnPage: number = 5;
+itemsOnPage: number = 18;
 currentPage: number = null;
-
+itemsOnPageArray: Array<any> = [];
+//placeholderUlbumCover:string = './assets/images/placeholder_for_album_cover.png'
 
   constructor(public getMusic: NavigationInfoService,
               public route: ActivatedRoute,
@@ -36,7 +37,9 @@ currentPage: number = null;
         console.log('marginForContentViewError', error);
     })
     this.route.queryParams.subscribe(params => { 
-    this.currentPage = params.page;
+        this.currentPage = params.page;
+
+    console.log(params);
       const filterParamsArray = Object.keys(params).reduce((object, key) => {
        if (key !== 'page') {
           object[key] = params[key]
@@ -65,24 +68,15 @@ currentPage: number = null;
       });
      if(success) {
         this.sortResult.push(song);
-        console.log('sort res', this.sortResult);
+        this.itemsOnPageArray = this.sortResult;  
       }
        this.loaded = true;
     });
-
-       let totalLeftItemsArray = [];
-       let itemsOnPageArray = [];
-       for(let i = this.itemsOnPage*(this.currentPage - 1); i < this.sortResult.length; i++) {
-            totalLeftItemsArray.push(this.sortResult[i]);
-       }
-       for (let k = 0; k < this.itemsOnPage && k < totalLeftItemsArray.length; k++) {
-           itemsOnPageArray.push(totalLeftItemsArray[k]);
-       }
-       console.log('page sort', totalLeftItemsArray);
-       console.log('show_items', itemsOnPageArray);
    this.getPageQuantity();
+   this.pageContentGenaretor()
   }
- public playerStart(index):void {
+ public playerStart(url):void {
+     let index = this.sortResult.findIndex(currSongUrl => currSongUrl.url== url);
      this.data.currPlayList(this.sortResult, index);
      this.currentPlayingSong();
  }
@@ -100,5 +94,15 @@ currentPage: number = null;
     this.data.isPlaying.subscribe((play:any) => {  
           this.isPlaying = play;
       }); 
+ }
+   pageContentGenaretor() {
+       this.itemsOnPageArray = [];
+       let totalLeftItemsArray = [];
+       for(let i = this.itemsOnPage*(this.currentPage - 1); i < this.sortResult.length; i++) {
+            totalLeftItemsArray.push(this.sortResult[i]);
+       }
+       for (let k = 0; k < this.itemsOnPage && k < totalLeftItemsArray.length; k++) {
+           this.itemsOnPageArray.push(totalLeftItemsArray[k]);
+       }
  }
 }

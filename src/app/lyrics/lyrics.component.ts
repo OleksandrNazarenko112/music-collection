@@ -13,6 +13,7 @@ export class LyricsComponent implements OnInit {
 public currentSongUrl: string;
 public result: Array<any> = [];
 public currentLine: number;
+marginForLyrics: number;
   constructor(private data: DataService,
               private route: ActivatedRoute,
               private router: Router,
@@ -24,6 +25,12 @@ public currentLine: number;
        this.route.parent.params.subscribe(params => {
              this.getMusic(params.playList);
         });
+    //   this.data.getPlayerHeight().subscribe((response)=> {
+    //     this.marginForLyrics = response;
+    //     console.log('lyrics',response);
+    // }, error => {
+    //     console.log('marginForContentViewError', error);
+    // });
   }
   // public getPlaylist() {
   //    this.data.getPlayList().subscribe((response) => {
@@ -38,6 +45,7 @@ public currentLine: number;
   public getMusic(playlist):void {
     this.getPlaylist.getMusic(playlist).subscribe(response => {
       this.getSongInfo(response.playlist.songs);
+      console.log(response);
     });
   };
    public getSongInfo(songsList):void {
@@ -46,4 +54,8 @@ public currentLine: number;
    public getCurrentLineIndex(index):void {
     this.currentLine = index;
   }
+ //   public playerStart(url):void {
+ //     this.data.currPlayList(this.sortResult, index);
+ //     this.currentPlayingSong();
+ // }
 }

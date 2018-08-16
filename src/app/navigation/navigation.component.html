@@ -10,8 +10,10 @@
   <h5>Плейлисты</h5>
   <ul class="playlists-container">
     <li *ngFor="let playList of navigationInfo?.settings?.playlist">
-      <a [routerLink]="['songs-tile', playList.route]" 
-         routerLinkActive="active-playlist" (click)="showNavigation = !showNavigation">
+      <a [routerLink]="['songs-tile', playList.route]"  
+         [class.active-playlist]="playList.route == id"
+         [queryParams]="{ page: 1 }"
+        (click)="showNavigation = !showNavigation">
        {{playList.name}}
       </a>
     </li>

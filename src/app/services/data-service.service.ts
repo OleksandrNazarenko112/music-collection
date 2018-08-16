@@ -30,7 +30,7 @@ export class DataService {
   }
   currentSong(url: any, play: any) {
     this.currentSongUrl.next(url);
-    this.isSongPlaying.next(play)
+    this.isSongPlaying.next(play);
   }
   // getCurrPlayList(songs: any, index:any) {
   //   return this.currentSongsArray.asObservable();

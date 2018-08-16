@@ -1,16 +1,18 @@
-<div class="container-fluid lyrics-content-container" *ngFor="let song of result; let i = index">
+<div class="container-fluid lyrics-content-container" *ngFor="let song of result; let i = index" [ngStyle]="{'margin-bottom.px': marginForLyrics}" >
   <div class="row">
     <div class="col-lg-3">
-        <div class="album-cover-container">
+        <div class="album-cover-container" [class.active-song]="song.url == currentSong">
           <span ><img [src]="song.albumCover" alt="{{song.title}}"></span>
           <div class="overlay">
             <div class="vertical-align">
-           <!-- <span (click)=playerStart(i)><i [ngClass]="sortResult[i].url == currentSong && isPlaying ? 'fa fa-pause' : 'fa fa-play'"></i></span>-->
+            <span (click)=playerStart(song.url)><i [ngClass]="song.url == currentSong && isPlaying ? 'fa fa-pause' : 'fa fa-play'"></i></span>
           </div>
           </div>
         </div>
+        <div class="extra-info-container">
          <h5>{{song.title}}</h5>
           <p>{{song.singer}}</p>
+        </div>
     </div>
     <div class="col-lg-4 original-text-container ml-auto">
         <p [class.space]="line == 'space'" *ngFor="let line of result[i]?.lyrics?.original; let k = index" (mouseenter) ="getCurrentLineIndex(k)" [class.current-line]="k == currentLine">{{line}}</p>

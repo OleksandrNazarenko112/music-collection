@@ -16,6 +16,7 @@ export class NavigationComponent implements OnInit {
   songsList: any = null;
   showNavigation: boolean;
   marginForNavigation: null;
+  selectedPlaylist: number;
 
   constructor(private getPlaylist: NavigationInfoService, 
               private router:Router,
@@ -30,6 +31,7 @@ export class NavigationComponent implements OnInit {
         console.log('marginForContentViewError', error);
     })
       this.route.queryParams.subscribe(params => {   
+       this.selectedPlaylist = params.page;
           this.defaultFilters = Object.keys(params).map(val => params[val]); 
           this.defaultAciveFiltersList = Object.keys(params);
      });
@@ -52,6 +54,6 @@ export class NavigationComponent implements OnInit {
     });
   }
    getFilters(filter,param) {
-     this.router.navigate(['songs-tile/'+ this.id], { queryParams: {[filter]: param }, queryParamsHandling: 'merge' });
+     this.router.navigate(['songs-tile/'+ this.id], { queryParams: {page: 1, [filter]: param }, queryParamsHandling: 'merge' });
  }
 }

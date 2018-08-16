@@ -81,6 +81,31 @@
       margin-left: 15px;
     }
   }
+ .pagination-container {
+  margin-top: 20px;
+  padding: 10px 0;
+  background-color: #eee;
+  .pagination {
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    .page-item {
+      .page-link {
+          margin-right: 10px;
+          color: #000;
+          padding: 2px 20px;
+        &.active-link {
+          background-color: #76abbd;
+          color: #fff;
+          border: 1px solid #76abbd;
+        }
+        &:focus {
+        box-shadow: none;
+        }
+      }
+    }
+  }
+ }
 }
 
 

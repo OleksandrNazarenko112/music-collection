@@ -2,12 +2,12 @@
 <div class="container-fluid tile-content-container" [ngStyle]="{'margin-bottom.px': marginForContentView}" *ngIf="route.children.length === 0 && loaded">
   <div class="col-lg-12">
     <div class="row">
-      <div class="col-lg-2 col-sm-3 col-6" *ngFor=" let song of sortResult; let i = index;">
-        <div class="album-cover-container" [class.active-song]="sortResult[i].url == currentSong">
+      <div class="col-lg-2 col-sm-3 col-6" *ngFor=" let song of itemsOnPageArray">
+        <div class="album-cover-container" [class.active-song]="song.url == currentSong">
           <span ><img [src]="song.albumCover" alt="{{song.title}}"></span>
           <div class="overlay">
             <div class="vertical-align">
-            <span (click)=playerStart(i)><i [ngClass]="sortResult[i]?.url == currentSong && isPlaying ? 'fa fa-pause' : 'fa fa-play'"></i></span>
+            <span (click)=playerStart(song.url)><i [ngClass]="song.url == currentSong && isPlaying ? 'fa fa-pause' : 'fa fa-play'"></i></span>
             <a [routerLink]="['lyrics', song.url]" *ngIf="song.lyrics">перевод песни</a>
           </div>
           </div>
@@ -20,9 +20,11 @@
     </div>
   </div>
   <h1 *ngIf="!sortResult.length">Ничего нет</h1>
-  <ul class="pagination pagination-sm" *ngIf="pagesArray.length > 1">
-    <li class="page-item"><a class="page-link">Previous</a></li>
-    <li class="page-item" *ngFor="let page of pagesArray"><a [routerLink]="['.']" [queryParams]="{ page: page + 1 }" queryParamsHandling="merge" class="page-link" >{{page + 1}}</a></li>
-  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  <div class="container-fluid pagination-container" *ngIf="pagesArray.length > 1">
+  <ul class="pagination pagination-sm">
+    <!--<li class="page-item"><a class="page-link">Previous</a></li>-->
+    <li class="page-item" *ngFor="let page of pagesArray; let i = index" (click)="pageContentGenaretor()"><a [routerLink]="['.']" [queryParams]="{ page: page + 1 }" queryParamsHandling="merge" class="page-link" [class.active-link] = "i == currentPage-1">{{page + 1}}</a></li>
+ <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li>-->
 </ul>
+</div>
 </div>
