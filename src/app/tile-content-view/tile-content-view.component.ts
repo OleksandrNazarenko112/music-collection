@@ -31,6 +31,7 @@ itemsOnPageArray: Array<any> = [];
 
   public ngOnInit():void {
    this.loadMusic();
+   this.currentPlayingSong();
     this.data.getPlayerHeight().subscribe((response)=> {
         this.marginForContentView = response;
     }, error => {
@@ -78,6 +79,7 @@ itemsOnPageArray: Array<any> = [];
  public playerStart(url):void {
      let index = this.sortResult.findIndex(currSongUrl => currSongUrl.url== url);
      this.data.currPlayList(this.sortResult, index);
+     console.log('tile player start', this.sortResult);
      this.currentPlayingSong();
  }
   getPageQuantity() {

@@ -32,6 +32,7 @@
 .audo-player {
   display: none;
   position: fixed;
+  z-index: 10;
   background-color: #fff;
   width: 100%;
   bottom: 0;

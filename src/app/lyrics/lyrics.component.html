@@ -1,6 +1,7 @@
 <div class="container-fluid lyrics-content-container" *ngFor="let song of result; let i = index" [ngStyle]="{'margin-bottom.px': marginForLyrics}" >
   <div class="row">
     <div class="col-lg-3">
+      <a routerLink="./" (click)="goBack()" class="content-page-navigation"><i class="fa fa-chevron-left" aria-hidden="true"></i> Каталог песен</a>
         <div class="album-cover-container" [class.active-song]="song.url == currentSong">
           <span ><img [src]="song.albumCover" alt="{{song.title}}"></span>
           <div class="overlay">
