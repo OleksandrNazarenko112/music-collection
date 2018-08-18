@@ -15,6 +15,7 @@
   padding: 10px;
   border: 1px solid #eee;
   border-radius: 4px;
+  margin-left: auto;
   p {
     padding: 5px;
     margin-bottom: 2px;
@@ -22,6 +23,9 @@
     &:first-child {
       font-size: 20px;
       font-weight: 600;
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
     }
   }
 }
@@ -30,6 +34,7 @@
   border-radius: 4px;
   margin-right: 20px;
   padding: 10px;
+  margin-left: auto;
   p {
     padding: 5px;
     margin-bottom: 2px;
@@ -37,6 +42,9 @@
     &:first-child {
       font-size: 20px;
       font-weight: 600;
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #fff;
     }
   }
 }
@@ -121,3 +129,75 @@
       }
     }
    }
+@media (min-width: 992px) {
+  .collapse.dont-collapse-sm {
+    display: block;
+    height: auto !important;
+    visibility: visible;
+  }
+}
+@media screen and (max-width: 991px) {
+  .container-song-information {
+    display: flex;
+  }
+  .extra-info-container {
+    align-self: flex-end;
+  }
+  .translation-text-container {
+    margin-left: 20px;
+    padding: 0 10px 10px 10px;
+        p {
+      &:first-child {
+        padding-top: 10px;
+      }
+    }
+  }
+  .original-text-container {
+    margin: 0 20px 20px 20px;
+    padding: 0 10px 10px 10px;
+    p {
+      &:first-child {
+        padding-top: 10px;
+      }
+    }
+  }
+  .accordion-btn {
+    text-align: left;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: none;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-color: #eee;
+      &:focus {
+        box-shadow: none;
+        outline: none;
+        border: 1px solid #eee;
+      }
+                  &:after {
+            content: '\f077';
+            font-family: FontAwesome;
+            font-size: 10px;
+            margin-left: 5px;
+          }
+        &.collapsed {
+            &:after {
+            content: '\f078';
+            font-family: FontAwesome;
+            font-size: 10px;
+            margin-left: 5px;
+          }
+    }
+}
+}
+@media screen and (max-width: 575px) {
+  .content-page-navigation {
+    margin-left: 0;
+  }
+    .container-song-information {
+    display: block;
+    .album-cover-container {
+      margin: 20px 0;
+    }
+  }
+}

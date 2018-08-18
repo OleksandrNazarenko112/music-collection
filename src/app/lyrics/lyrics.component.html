@@ -1,8 +1,9 @@
 <div class="container-fluid lyrics-content-container" *ngFor="let song of result; let i = index" [ngStyle]="{'margin-bottom.px': marginForLyrics}" >
   <div class="row">
-    <div class="col-lg-3">
-      <a routerLink="./" (click)="goBack()" class="content-page-navigation"><i class="fa fa-chevron-left" aria-hidden="true"></i> Каталог песен</a>
-        <div class="album-cover-container" [class.active-song]="song.url == currentSong">
+    <div class="col-lg-3 col-sm-12 col-12">
+      <a routerLink="./" (click)="goBack()" class="content-page-navigation"><i class="fa fa-chevron-left" aria-hidden="true"></i> Назад в плейлист</a>
+        <div class="container-song-information">
+        <div class="album-cover-container col-lg-12 col-sm-4 col-12 pl-sm-0 pr-sm-0 pl-0 pr-0" [class.active-song]="song.url == currentSong">
           <span ><img [src]="song.albumCover" alt="{{song.title}}"></span>
           <div class="overlay">
             <div class="vertical-align">
@@ -10,16 +11,23 @@
           </div>
           </div>
         </div>
-        <div class="extra-info-container">
+        <div class="extra-info-container col-lg-12 col-sm-7 col-12">
          <h5>{{song.title}}</h5>
           <p>{{song.singer}}</p>
         </div>
+      </div>
     </div>
-    <div class="col-lg-4 original-text-container ml-auto">
+    <div class="d-lg-none d-sm-block col-sm-12">
+    <button  class="accordion-btn col-sm-12 collapsed" data-toggle="collapse" data-target="#original" aria-expanded="false" aria-controls="original">Текст песни</button>
+  </div>
+    <div class="col-lg-4 original-text-container collapse dont-collapse-sm" id="original">
         <p [class.space]="line == 'space'" *ngFor="let line of result[i]?.lyrics?.original; let k = index" (mouseenter) ="getCurrentLineIndex(k)" [class.current-line]="k == currentLine">{{line}}</p>
     </div>
-    <div class="col-lg-4 translation-text-container ml-auto">
+    <div class="d-lg-none d-sm-block col-sm-12">
+    <button  class="accordion-btn col-sm-12 collapsed" data-toggle="collapse" data-target="#translation" aria-expanded="false" aria-controls="translation">Перевод песни</button>
+  </div>
+    <div class="col-lg-4 translation-text-container collapse dont-collapse-sm" id="translation">
       <p [class.space]="line == 'space'" *ngFor="let line of result[i]?.lyrics?.ru; let j = index" [class.current-line]="j == currentLine " (mouseenter) ="getCurrentLineIndex(j)">{{line}}</p>
     </div>
   </div>
-</div>
+
