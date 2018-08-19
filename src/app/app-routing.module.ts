@@ -12,8 +12,8 @@ const appRoutes: Routes = [
       children: [
     { path: 'lyrics/:url', component: LyricsComponent }
   ] },
-    {path: 'not-found', component: PageNotFoundComponent},
-    {path: '**', redirectTo: 'not-found'} 
+     {path: 'not-found', component: PageNotFoundComponent},
+     {path: '**', redirectTo: 'not-found'} 
 ];
 
 @NgModule({

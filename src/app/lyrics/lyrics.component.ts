@@ -17,6 +17,7 @@ public currentLine: number;
 marginForLyrics: number;
 currentPlayListArray: Array<any>;
 currentSong;
+currentPlaylistName: string;
 isPlaying:boolean;
   constructor(private data: DataService,
               private route: ActivatedRoute,
@@ -30,6 +31,7 @@ isPlaying:boolean;
     this.currentPlayingSong();
        this.currentSongId = this.route.snapshot.params['url'];  
        this.route.parent.params.subscribe(params => {
+         this.currentPlaylistName = params.playList;
              this.getMusic(params.playList);
         });
       this.data.getPlayerHeight().subscribe((response)=> {
@@ -67,7 +69,10 @@ isPlaying:boolean;
       }); 
  }
  goBack() {
-
-   this.location.back();
+  if(window.history.length > 2) {
+     this.location.back();
+   } else {
+     this.router.navigate(['songs-tile/'+this.currentPlaylistName], { queryParams: {page: 1 }, queryParamsHandling: 'merge' });
+   }
  }
 }

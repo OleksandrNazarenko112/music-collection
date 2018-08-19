@@ -98,6 +98,7 @@ itemsOnPageArray: Array<any> = [];
       }); 
  }
    pageContentGenaretor() {
+     window.scroll(0,0);
        this.itemsOnPageArray = [];
        let totalLeftItemsArray = [];
        for(let i = this.itemsOnPage*(this.currentPage - 1); i < this.sortResult.length; i++) {
