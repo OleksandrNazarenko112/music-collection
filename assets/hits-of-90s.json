@@ -187,6 +187,16 @@
         "Мужской", 
        "Быстрый"
       ]
+      },
+      {"id": 7,
+      "title": "Come with Me",
+      "singer": "Puff Daddy song",
+      "url": "https://fex.net/load/759433697826/676632419",
+      "albumCover": "https://fex.net/show/759433697826/676633274?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+       "Быстрый"
+      ]
       }
     ]
   }
