@@ -177,7 +177,17 @@
         "Мужской", 
         "Быстрый"
       ]
-    }
+    },
+    {"id": 6,
+      "title": "Mama said knock you out",
+      "singer": "L.L. Cool J",
+      "url": "https://fex.net/load/282168001195/607854822",
+      "albumCover": "https://fex.net/show/282168001195/607862127?1600w,0",
+      "filters" : [ 
+        "Мужской", 
+       "Быстрый"
+      ]
+      }
     ]
   }
 }
