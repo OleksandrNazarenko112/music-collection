@@ -213,6 +213,26 @@
        "Мужской",
        "Медленный"
       ]
+      },
+      {"id": 21,
+      "title": "Rockstar",
+      "singer": "Post Malone feat. 21 Savage",
+      "url": "https://fex.net/load/282168001195/684900241",
+      "albumCover": "https://fex.net/show/282168001195/684898376?1600w,0",
+      "filters" : [ 
+       "Дуэт",
+       "Средний"
+      ]
+      },
+      {"id": 22,
+      "title": "Ok",
+      "singer": "Robin Schulz feat. James Blunt",
+      "url": "https://fex.net/load/282168001195/684900350",
+      "albumCover": "https://fex.net/show/282168001195/684898313?1600w,0",
+      "filters" : [ 
+       "Мужской",
+       "Быстрый"
+      ]
       }
     ]
   }
