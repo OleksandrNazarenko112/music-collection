@@ -60,8 +60,8 @@
       "url": "https://fex.net/load/282168001195/607587350",
       "albumCover": "https://fex.net/show/282168001195/607587922?1600w,0",
       "filters" : [ 
-       "Женский", 
-       "Дуэт" 
+       "Дуэт", 
+       "Быстрый" 
       ]
       },
       {"id": 6,
@@ -125,16 +125,6 @@
       ]
       },
       {"id": 12,
-      "title": "Mama said knock you out",
-      "singer": "L.L. Cool J",
-      "url": "https://fex.net/load/282168001195/607854822",
-      "albumCover": "https://fex.net/show/282168001195/607862127?1600w,0",
-      "filters" : [ 
-        "Мужской", 
-       "Быстрый"
-      ]
-      },
-      {"id": 13,
       "title": "Never give up",
       "singer": "Sia",
       "url": "https://fex.net/load/282168001195/607894885",
@@ -144,7 +134,7 @@
        "Быстрый"
       ]
       },
-      {"id": 14,
+      {"id": 13,
       "title": "Come as you are",
       "singer": "Prep School",
       "url": "https://fex.net/load/282168001195/628568418",
@@ -154,7 +144,7 @@
        "Быстрый"
       ]
       },
-      {"id": 15,
+      {"id": 14,
       "title": "You Know I’m No Good",
       "singer": "Amy Winehouse",
       "url": "https://fex.net/load/282168001195/628915384",
@@ -164,7 +154,7 @@
        "Средний"
       ]
       },
-      {"id": 16,
+      {"id": 15,
       "title": "Shape of you",
       "singer": "Ed Sheeran",
       "url": "https://fex.net/load/282168001195/628966783",
@@ -174,7 +164,7 @@
        "Средний"
       ]
       },
-      {"id": 17,
+      {"id": 16,
       "title": "Behind The Mask",
       "singer": "Michael Jackson",
       "url": "https://fex.net/load/282168001195/652860821",
@@ -184,7 +174,7 @@
        "Средний"
       ]
       },
-      {"id": 18,
+      {"id": 17,
       "title": "Dernière Danse",
       "singer": "Indila",
       "url": "https://fex.net/load/282168001195/663909212",
@@ -194,7 +184,7 @@
        "Средний"
       ]
       },
-      {"id": 19,
+      {"id": 18,
       "title": "Counting stars",
       "singer": "One republic",
       "url": "https://fex.net/load/282168001195/663909386",
@@ -204,7 +194,7 @@
        "Средний"
       ]
       },
-      {"id": 20,
+      {"id": 19,
       "title": "Makeba",
       "singer": "Jain",
       "url": "https://fex.net/load/282168001195/670781522",
@@ -212,6 +202,16 @@
       "filters" : [ 
        "Женский",
        "Быстрый"
+      ]
+      },
+      {"id": 20,
+      "title": "Illusion",
+      "singer": "VNV Nation",
+      "url": "https://fex.net/load/282168001195/675766249",
+      "albumCover": "https://fex.net/show/282168001195/675767233?1600w,0",
+      "filters" : [ 
+       "Мужской",
+       "Медленный"
       ]
       }
     ]

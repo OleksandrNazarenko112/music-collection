@@ -18,9 +18,13 @@ isPlaying:boolean;
 loaded: boolean;
 marginForContentView: any = null;
 pagesArray: Array<number> = [];
-itemsOnPage: number = 18;
+itemsOnPage: number = 2;
+pageLimit:number = 3;
+pagingsList: Array<number>;
 currentPage: number = null;
-itemsOnPageArray: Array<any> = [];
+itemsOnPageArray: Array<number> = [];
+pages:number = 10; 
+
 //placeholderUlbumCover:string = './assets/images/placeholder_for_album_cover.png'
 
   constructor(public getMusic: NavigationInfoService,
@@ -30,6 +34,7 @@ itemsOnPageArray: Array<any> = [];
               ) { }
 
   public ngOnInit():void {
+
    this.loadMusic();
    this.currentPlayingSong();
     this.data.getPlayerHeight().subscribe((response)=> {
@@ -38,14 +43,13 @@ itemsOnPageArray: Array<any> = [];
         console.log('marginForContentViewError', error);
     })
     this.route.queryParams.subscribe(params => { 
-        this.currentPage = params.page;
-
-    console.log(params);
+        this.currentPage = +params.page;
+    console.log(this.currentPage);
       const filterParamsArray = Object.keys(params).reduce((object, key) => {
        if (key !== 'page') {
           object[key] = params[key]
-         }
-    return object
+          }
+      return object
     }, {});
           this.queryParamsArray = Object.keys(filterParamsArray).map(val => filterParamsArray[val]); 
           this.songSorting();
@@ -86,7 +90,13 @@ itemsOnPageArray: Array<any> = [];
       this.pagesArray = [];
       const pageQuantity = Math.ceil(this.sortResult.length / this.itemsOnPage);
      for (let i = 0; i < pageQuantity; i++) {
-        this.pagesArray.push(i);
+        this.pagesArray.push(i+1);
+     } 
+     console.log(this.pagesArray.length);
+     if(isNaN(this.currentPage)) {
+       return;
+     } else {
+         this.pagination(this.currentPage, this.pagesArray.length);
      }
  }
   currentPlayingSong() {
@@ -98,7 +108,7 @@ itemsOnPageArray: Array<any> = [];
       }); 
  }
    pageContentGenaretor() {
-     window.scroll(0,0);
+       window.scroll(0,0);
        this.itemsOnPageArray = [];
        let totalLeftItemsArray = [];
        for(let i = this.itemsOnPage*(this.currentPage - 1); i < this.sortResult.length; i++) {
@@ -107,5 +117,23 @@ itemsOnPageArray: Array<any> = [];
        for (let k = 0; k < this.itemsOnPage && k < totalLeftItemsArray.length; k++) {
            this.itemsOnPageArray.push(totalLeftItemsArray[k]);
        }
+
  }
+ pagination(current, total) {
+  this.pagingsList = [];
+  let upperLimit, lowerLimit;
+  let currentPage = lowerLimit = upperLimit = Math.min(current, total);
+
+  for (let b = 1; b < this.pageLimit && b < total;) {
+      if (lowerLimit > 1 ) {
+          lowerLimit--; b++; 
+      }
+      if (b < this.pageLimit && upperLimit < total) {
+          upperLimit++; b++; 
+      }
+  }
+  for (let i = lowerLimit; i <= upperLimit; i++) {
+        this.pagingsList.push(i);
+  }
+}
 }
