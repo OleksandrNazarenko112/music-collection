@@ -1,3 +1,6 @@
+.mobile-pagination-vertical {
+  display: none;
+}
 .tile-content-container {
   padding: 20px 0;
   .album-cover-container {
@@ -127,11 +130,13 @@
           margin-right: 10px;
           color: #000;
           padding: 2px 20px;
+          text-align: center;
         &.active-link {
           background-color: #76abbd;
           color: #fff;
           border: 1px solid #76abbd;
           cursor: default;
+          pointer-events: none;
         }
         &:focus {
         box-shadow: none;
@@ -147,4 +152,22 @@
   pointer-events: none;
 }
 
-
+@media screen and (max-width: 561px) {
+  .mobile-pagination-vertical {
+    display: block;
+    margin-right: 10px;
+  }
+  .tile-content-container {
+      .pagination-container {
+            .pagination {
+                align-items: center;
+                .page-item {
+                    width: 30%;
+                }
+              .page-item.page-selector {
+                display: none;
+              }
+            }
+      }
+    }   
+}

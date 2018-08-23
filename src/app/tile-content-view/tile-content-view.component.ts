@@ -18,7 +18,7 @@ isPlaying:boolean;
 loaded: boolean;
 marginForContentView: any = null;
 pagesArray: Array<number> = [];
-itemsOnPage: number = 2;
+itemsOnPage: number = 18;
 pageLimit:number = 3;
 pagingsList: Array<number>;
 currentPage: number = null;

@@ -40,7 +40,7 @@
            <i class="fa fa-chevron-left" aria-hidden="true"></i>
          </a>
        </li>
-      <li class="page-item first-page" [class.hide] ="pagingsList.includes(1)">
+      <li class="page-item page-selector first-page" [class.hide] ="pagingsList.includes(1)">
         <a [routerLink]="['.']" 
            [queryParams]="{ page: 1 }" 
            queryParamsHandling="merge" 
@@ -49,7 +49,8 @@
            (click)="pageContentGenaretor()">1
         </a>
       </li>
-      <li class="page-item" *ngFor="let page of pagesArray; let i = index">
+      <li><span class="mobile-pagination-vertical">{{currentPage}} / {{pagesArray.length}}</span></li>
+      <li class="page-item page-selector" *ngFor="let page of pagesArray; let i = index">
         <a [routerLink]="['.']" 
            [queryParams]="{ page: page }" 
            queryParamsHandling="merge" 
@@ -58,7 +59,7 @@
            (click)="pageContentGenaretor()" [hidden] ="!pagingsList.includes(i+1)">{{page}}
         </a>
       </li>
-      <li class="page-item last-page" [class.hide] ="pagingsList.includes(pagesArray.length)">
+      <li class="page-item page-selector last-page" [class.hide] ="pagingsList.includes(pagesArray.length)">
         <a [routerLink]="['.']" 
            [queryParams]="{ page: pagesArray.length }" 
            queryParamsHandling="merge" 
