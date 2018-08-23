@@ -138,6 +138,11 @@
           cursor: default;
           pointer-events: none;
         }
+        &.disabled {
+          color: #dcd9d9; 
+          background-color: #eee;
+           pointer-events: none;
+        }
         &:focus {
         box-shadow: none;
         }
@@ -146,11 +151,7 @@
   }
  }
 }
-.disabled {
-  color: #dcd9d9;
-  background-color: #eee;
-  pointer-events: none;
-}
+
 
 @media screen and (max-width: 561px) {
   .mobile-pagination-vertical {
